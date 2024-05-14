@@ -1,0 +1,62 @@
+/* Media query for mobile devices  carousel*/
+@media screen and (min-width: 300px) and (max-width: 600px) {
+  .c-img {
+    width: 100%;
+  }
+  .nav-bar {
+    width: 100%;
+    position: absolute;
+    left: 20px;
+    top: 0px;
+  }
+  .nav-list {
+    display: none;
+  }
+}
+
+/* Media query for mobile devices  carousel*/
+@media screen and (min-width: 400px) and (max-width: 950px) {
+  .c-img {
+    width: 100% !important;
+  }
+  .nav-bar {
+    width: 100%;
+    position: absolute;
+    left: 20px;
+    top: 0px;
+  }
+  .nav-list {
+    display: none;
+  }
+}
+
+/* Media query for desktop view carousel */
+@media screen and (min-width: 600px) and (max-width: 2550px) {
+  .carousel {
+    width: 100%;
+  }
+  .c-img {
+    width: 100%;
+    height: 500px;
+  }
+  .nav-bar {
+    position: absolute;
+    left: 20px;
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+    width: 90%;
+  }
+  .nav-list {
+    display: flex;
+    justify-content: space-evenly;
+    color: white;
+  }
+  .nav-button {
+    display: none;
+  }
+  .nav-mobileList {
+    display: none;
+  }
+}
