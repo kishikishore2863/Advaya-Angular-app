@@ -1,14 +1,38 @@
-<div class="carousel">
-  <img class="c-img" src="../../assets/img1.jpeg" alt="carousel view" />
-  <div class="nav-bar">
-    <div>
-      <img src="" alt="Advaya Logo" />
+@if (images) {
+<ngb-carousel
+  [showNavigationArrows]="showNavigationArrows"
+  [showNavigationIndicators]="showNavigationIndicators"
+>
+  @for (image of images; track image) {
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img class="bSlide-img" [src]="image" alt="Random slide" />
     </div>
-    <ul class="nav-list" type="none">
-      <li>HOME</li>
-      <li style="margin-left: 30px">ABOUT US</li>
-      <li style="margin-left: 30px">PRODUCTS</li>
-      <li style="margin: 0px 30px">CONTACT US</li>
-    </ul>
+  </ng-template>
+  }
+</ngb-carousel>
+}
+
+<div class="btn-group" role="group" aria-label="Carousel toggle controls">
+  <button
+    type="button"
+    (click)="showNavigationArrows = !showNavigationArrows"
+    style="display: none"
+  ></button>
+  <button
+    type="button"
+    (click)="showNavigationIndicators = !showNavigationIndicators"
+    style="display: none"
+  ></button>
+</div>
+<div class="nav-bar">
+  <div>
+    <img src="" alt="Advaya Logo" />
   </div>
+  <ul class="nav-list" type="none">
+    <li>HOME</li>
+    <li style="margin-left: 30px">ABOUT US</li>
+    <li style="margin-left: 30px">PRODUCTS</li>
+    <li style="margin: 0px 30px">CONTACT US</li>
+  </ul>
 </div>
