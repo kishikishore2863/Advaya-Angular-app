@@ -1,6 +1,10 @@
 import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
+
 import {
   CarouselComponent,
   CarouselControlComponent,
@@ -25,6 +29,7 @@ import {
     CarouselControlComponent,
     RouterLink,
     NgbCarouselModule,
+    FormsModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
@@ -65,5 +70,25 @@ export class HeaderComponent implements OnInit {
     // customize default values of carousels used by this component tree
     config.showNavigationArrows = true;
     config.showNavigationIndicators = true;
+  }
+  toggleSidebar(visible: boolean): void {
+    const sidebar: HTMLElement | null = document.querySelector('.sidebar');
+    if (sidebar) {
+      sidebar.style.display = visible ? 'flex' : 'none';
+    }
+  }
+
+  showSidebar(): void {
+    const sidebar: HTMLElement | null = document.querySelector('.sidebar');
+    if (sidebar) {
+      sidebar.style.display = 'flex';
+    }
+  }
+
+  hideSidebar(): void {
+    const sidebar: HTMLElement | null = document.querySelector('.sidebar');
+    if (sidebar) {
+      sidebar.style.display = 'none';
+    }
   }
 }
