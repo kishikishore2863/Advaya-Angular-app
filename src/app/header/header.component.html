@@ -30,10 +30,10 @@
     <img class="nav-logo" src="" alt="Advaya Logo" />
   </div>
   <ul class="nav-list" type="none">
-    <li>HOME</li>
+    <li (click)="redirectToHome()">HOME</li>
     <li style="margin-left: 30px">ABOUT US</li>
     <li style="margin-left: 30px">PRODUCTS</li>
-    <li style="margin: 0px 30px">CONTACT US</li>
+    <li (click)="contact()" style="margin: 0px 30px">CONTACT US</li>
   </ul>
 </div>
 
@@ -66,34 +66,38 @@
           height="26"
           viewBox="0 96 960 960"
           width="26"
+          style="color: aliceblue"
         >
           <path
+            stroke="white"
+            fill="white"
             d="m249 849-42-42 231-231-231-231 42-42 231 231 231-231 42 42-231 231 231 231-42 42-231-231-231 231Z"
           />
         </svg>
       </li>
-      <li><a href="/">HOME</a></li>
-      <li><a href="#">ABOUT US</a></li>
-      <li><a href="#">PRODUCTS</a></li>
-      <li><a href="#">CONTACT US</a></li>
+      <li><a (click)="redirectToHome()">HOME</a></li>
+
+      <li><a routerLink="">ABOUT US</a></li>
+      <li><a routerLink="">PRODUCTS</a></li>
+      <li><a (click)="contact()" routerLink="">CONTACT US</a></li>
     </ul>
-    <div class="menu-bar">
-      <div>
-        <img src="" alt="brandlogo" />
-      </div>
-      <div class="menu-button" (click)="showSidebar()" type="none">
-        <svg
-          style="padding: 5px"
-          xmlns="http://www.w3.org/2000/svg"
-          height="26"
-          viewBox="0 96 960 960"
-          width="26"
-        >
-          <path
-            d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"
-          />
-        </svg>
-      </div>
-    </div>
   </nav>
+  <div class="menu-bar">
+    <div class="menu-button" (click)="showSidebar()" type="none">
+      <svg
+        style="padding: 5px"
+        xmlns="http://www.w3.org/2000/svg"
+        height="26"
+        viewBox="0 96 960 960"
+        width="26"
+      >
+        <path
+          d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"
+        />
+      </svg>
+    </div>
+    <div>
+      <img src="" alt="brandlogo" />
+    </div>
+  </div>
 </div>

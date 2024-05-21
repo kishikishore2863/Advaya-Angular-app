@@ -4,6 +4,8 @@ import { NgModule } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 
 import {
   CarouselComponent,
@@ -30,6 +32,7 @@ import {
     RouterLink,
     NgbCarouselModule,
     FormsModule,
+    HttpClientModule,
   ],
   templateUrl: './header.component.html',
   styleUrl: './header.component.css',
@@ -66,7 +69,7 @@ export class HeaderComponent implements OnInit {
     '../../assets/img3.jpeg',
   ];
 
-  constructor(config: NgbCarouselConfig) {
+  constructor(config: NgbCarouselConfig, private route: Router) {
     // customize default values of carousels used by this component tree
     config.showNavigationArrows = true;
     config.showNavigationIndicators = true;
@@ -75,20 +78,37 @@ export class HeaderComponent implements OnInit {
     const sidebar: HTMLElement | null = document.querySelector('.sidebar');
     if (sidebar) {
       sidebar.style.display = visible ? 'flex' : 'none';
-    }
-  }
-
-  showSidebar(): void {
-    const sidebar: HTMLElement | null = document.querySelector('.sidebar');
-    if (sidebar) {
-      sidebar.style.display = 'flex';
+      sidebar.style.visibility = visible ? 'visible' : 'hidden';
     }
   }
 
   hideSidebar(): void {
     const sidebar: HTMLElement | null = document.querySelector('.sidebar');
+    const menu: HTMLElement | null = document.querySelector('.menu-bar');
     if (sidebar) {
       sidebar.style.display = 'none';
     }
+    if (menu) {
+      menu.style.display = 'flex';
+    }
+  }
+  showSidebar(): void {
+    const sidebar: HTMLElement | null = document.querySelector('.sidebar');
+    const menu: HTMLElement | null = document.querySelector('.menu-bar');
+    if (sidebar) {
+      sidebar.style.display = 'flex';
+    }
+    if (menu) {
+      menu.style.display = 'none';
+    }
+  }
+
+  redirectToHome() {
+    this.route.navigate(['/']);
+    this.hideSidebar();
+  }
+  contact() {
+    this.route.navigate(['/contactus']);
+    this.hideSidebar();
   }
 }

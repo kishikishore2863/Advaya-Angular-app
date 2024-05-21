@@ -1,10 +1,15 @@
 /* Media query for mobile devices  carousel*/
 @media screen and (min-width: 300px) and (max-width: 600px) {
+  .hide {
+    display: block;
+  }
   .nav-logo {
     display: none;
   }
   .sidebar {
-    width: 100%;
+    width: 70%;
+    display: none;
+    /* visibility: hidden; */
   }
   .c-img {
     width: 100%;
@@ -207,7 +212,7 @@ nav ul {
   width: 100%;
   list-style: none;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   align-items: center;
 }
 nav li {
@@ -221,19 +226,21 @@ nav a {
   align-items: center;
   color: black;
 }
-nav a:hover {
-  background-color: #f0f0f0;
-}
+
 nav li:first-child {
   margin-right: auto;
+
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
 }
 .sidebar {
   position: fixed;
   top: 0;
-  right: 0;
-  height: 100vh;
-  width: 250px;
-  background-color: rgba(255, 255, 255, 0.15);
+  left: 0;
+  height: 100%;
+  width: 70% !important;
+  background-color: black;
   backdrop-filter: blur(12px);
   box-shadow: -10px 0 10px rgba(245, 244, 244, 0.997);
   list-style: none;
@@ -241,17 +248,19 @@ nav li:first-child {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  /* visibility: hidden; */
 }
 .sidebar li {
   width: 100%;
 }
 .sidebar a {
   width: 100%;
+  color: #f0f0f0;
 }
 .menu-bar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  display: none;
+
+  /* align-items: center; */
   padding: 0px 50px;
   background-color: transparent;
   position: absolute;
