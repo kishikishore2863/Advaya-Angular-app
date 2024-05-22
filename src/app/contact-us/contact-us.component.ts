@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-contact-us',
   standalone: true,
-  imports: [],
+  imports: [RouterModule],
   templateUrl: './contact-us.component.html',
-  styleUrl: './contact-us.component.css'
+  styleUrl: './contact-us.component.css',
 })
-export class ContactUsComponent {
-
-}
+export class ContactUsComponent {}

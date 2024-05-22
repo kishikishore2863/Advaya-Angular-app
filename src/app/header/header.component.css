@@ -161,18 +161,19 @@
     height: 500px;
   }
   .nav-bar {
-    position: absolute;
-    left: 20px;
-    top: 0px;
     display: flex;
     justify-content: space-between;
-    padding: 50px;
-    width: 90%;
+    padding: 20px;
+    width: 100%;
+    background-color: white;
+    position: sticky;
+    top: 0px;
+    z-index: 1;
   }
   .nav-list {
     display: flex;
     justify-content: space-evenly;
-    color: white;
+    color: black;
   }
   .nav-button {
     display: none;

@@ -1,0 +1,27 @@
+.breadcrumb {
+  width: 100%;
+  padding: 14px 10px;
+  font-family: sans-serif;
+  font-size: 14px;
+}
+
+.breadcrumb-items {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.breadcrumb-item1 {
+  margin-right: 8px;
+  color: rgb(153, 153, 153);
+  cursor: pointer;
+}
+.breadcrumb-item1:hover {
+  color: rgb(4, 132, 189);
+}
+.breadcrumb-item2 {
+  content: ">";
+  margin-left: 8px;
+  color: rgb(4, 132, 189);
+}

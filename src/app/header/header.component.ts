@@ -39,7 +39,7 @@ import {
   providers: [NgbCarouselConfig],
 })
 export class HeaderComponent implements OnInit {
-  slides: any[] = new Array(3).fill({
+  slides: any[] = new Array(4).fill({
     id: -1,
     src: '',
     title: '',
@@ -56,6 +56,11 @@ export class HeaderComponent implements OnInit {
     this.slides[2] = {
       src: '../../assets/img3.jpeg',
     };
+    this.slides[3] = {
+      src: '../../assets/Sample_Banner(1920x760).png',
+    };
+    this.toggleSidebar(false);
+    this.hideSidebar();
   }
 
   showNavigationArrows = false;
@@ -67,6 +72,7 @@ export class HeaderComponent implements OnInit {
     '../../assets/img1.jpeg',
     '../../assets/img2.webp',
     '../../assets/img3.jpeg',
+    '../../assets/Sample_Banner(1920x760).png',
   ];
 
   constructor(config: NgbCarouselConfig, private route: Router) {
@@ -74,11 +80,13 @@ export class HeaderComponent implements OnInit {
     config.showNavigationArrows = true;
     config.showNavigationIndicators = true;
   }
+
   toggleSidebar(visible: boolean): void {
     const sidebar: HTMLElement | null = document.querySelector('.sidebar');
+    console.log(visible);
     if (sidebar) {
-      sidebar.style.display = visible ? 'flex' : 'none';
-      sidebar.style.visibility = visible ? 'visible' : 'hidden';
+      sidebar.style.display = visible ? 'none' : 'flex';
+      // sidebar.style.visibility = visible ? 'visible' : 'hidden';
     }
   }
 

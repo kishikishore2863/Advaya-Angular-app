@@ -1,3 +1,25 @@
+<div class="nav-bar">
+  <div>
+    <img
+      style="height: 75px; width: 75px"
+      class="nav-logo"
+      src="../../assets/Advaya_Final_Logo(SVG).svg"
+      alt="Advaya Logo"
+    />
+  </div>
+
+  <ul
+    class="nav-list"
+    type="none"
+    style="margin: 0 !important; align-self: center"
+  >
+    <li (click)="redirectToHome()">HOME</li>
+    <li style="margin-left: 30px">ABOUT US</li>
+    <li style="margin-left: 30px">PRODUCTS</li>
+    <li (click)="contact()" style="margin: 0px 30px">CONTACT US</li>
+  </ul>
+</div>
+
 @if (images) {
 <ngb-carousel
   [showNavigationArrows]="showNavigationArrows"
@@ -25,38 +47,7 @@
     style="display: none"
   ></button>
 </div>
-<div class="nav-bar">
-  <div>
-    <img class="nav-logo" src="" alt="Advaya Logo" />
-  </div>
-  <ul class="nav-list" type="none">
-    <li (click)="redirectToHome()">HOME</li>
-    <li style="margin-left: 30px">ABOUT US</li>
-    <li style="margin-left: 30px">PRODUCTS</li>
-    <li (click)="contact()" style="margin: 0px 30px">CONTACT US</li>
-  </ul>
-</div>
 
-<!-- <div class="body">
-  <input
-    type="checkbox"
-    [(ngModel)]="model"
-    class="openSidebarMenu"
-    id="openSidebarMenu"
-  />
-  <label for="openSidebarMenu" class="sidebarIconToggle">
-    <div class="spinner diagonal part-1">===</div>
-    <div class="spinner horizontal">===</div>
-    <div class="spinner diagonal part-2">===</div>
-  </label>
-  <div id="sidebarMenu">
-    <div class="main-content-wrapper">
-      <a href="#news">News</a>
-      <a href="#contact">Contact</a>
-      <a href="#about">About</a>
-    </div>
-  </div>
-</div> -->
 <div class="hide">
   <nav>
     <ul class="sidebar">
