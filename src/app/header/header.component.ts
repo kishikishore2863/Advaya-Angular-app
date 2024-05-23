@@ -38,7 +38,7 @@ import {
   styleUrl: './header.component.css',
   providers: [NgbCarouselConfig],
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
   slides: any[] = new Array(4).fill({
     id: -1,
     src: '',
@@ -47,33 +47,9 @@ export class HeaderComponent implements OnInit {
   });
 
   ngOnInit(): void {
-    this.slides[0] = {
-      src: '../../assets/img1.jpeg',
-    };
-    this.slides[1] = {
-      src: '../../assets/img2.webp',
-    };
-    this.slides[2] = {
-      src: '../../assets/img3.jpeg',
-    };
-    this.slides[3] = {
-      src: '../../assets/Sample_Banner(1920x760).png',
-    };
     this.toggleSidebar(false);
     this.hideSidebar();
   }
-
-  showNavigationArrows = false;
-  showNavigationIndicators = false;
-  // images = [1055, 194, 368].map((n) => `https://picsum.photos/id/${n}/900/500`);
-  // images = this.slides.map((n) => n.src);
-  // images = this.slides;
-  images = [
-    '../../assets/img1.jpeg',
-    '../../assets/img2.webp',
-    '../../assets/img3.jpeg',
-    '../../assets/Sample_Banner(1920x760).png',
-  ];
 
   constructor(config: NgbCarouselConfig, private route: Router) {
     // customize default values of carousels used by this component tree

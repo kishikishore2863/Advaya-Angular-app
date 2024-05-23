@@ -1,3 +1,202 @@
-<app-header></app-header>
-<app-testing></app-testing>
+@if (images) {
+<ngb-carousel
+  [showNavigationArrows]="showNavigationArrows"
+  [showNavigationIndicators]="showNavigationIndicators"
+>
+  @for (image of images; track image) {
+  <ng-template ngbSlide>
+    <div class="picsum-img-wrapper">
+      <img class="bSlide-img" [src]="image" alt="Random slide" />
+    </div>
+  </ng-template>
+  }
+</ngb-carousel>
+}
+
+<div class="btn-group" role="group" aria-label="Carousel toggle controls">
+  <button
+    type="button"
+    (click)="showNavigationArrows = !showNavigationArrows"
+    style="display: none"
+  ></button>
+  <button
+    type="button"
+    (click)="showNavigationIndicators = !showNavigationIndicators"
+    style="display: none"
+  ></button>
+</div>
+
+<div class="btn-group" role="group" aria-label="Carousel toggle controls">
+  <button
+    type="button"
+    (click)="showNavigationArrows = !showNavigationArrows"
+    style="display: none"
+  ></button>
+  <button
+    type="button"
+    (click)="showNavigationIndicators = !showNavigationIndicators"
+    style="display: none"
+  ></button>
+</div>
+
+<main class="" style="overflow: hidden">
+  <h1 style="display: flex; justify-content: center; padding-top: 12%">
+    WHO WE ARE?
+  </h1>
+  <div style="text-align: center; padding: 0 100px; margin-top: 2rem">
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos aliquam
+      mollitia a! Harum ab cumque minima in quaerat recusandae necessitatibus
+      nobis praesentium libero optio sint aliquam, nihil laudantium eligendi
+      cupiditate est facilis assumenda enim quos dolores architecto iusto.
+      Dolorum sequi quae ab possimus beatae dolor natus error. Non, consequatur
+      dolorem!
+    </p>
+  </div>
+  <p class="product">OUR PRODUCTS</p>
+
+  <div class="row view-poll" style="margin-left: 1rem; margin-top: 4%">
+    <div class="col-md-3 alignment">
+      <picture>
+        <img
+          src="//raw.githubusercontent.com/codrops/HoverEffectIdeas/master/img/1.jpg"
+          alt=""
+          style="width: 400px"
+        />
+      </picture>
+    </div>
+    <div class="col-md-9">
+      <div class="container caption">
+        <div class="vertical-center">
+          <h3 style="display: flex; justify-content: start">Chilli Powder</h3>
+          <p style="width: 80%" class="text-color">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
+            non voluptatem dolore repellendus eaque fugiat, minima, iure
+            asperiores ratione eum ea magni ex. Aut aperiam rem incidunt vero
+            aliquid consequatur! <br />
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
+            non voluptatem dolore repellendus eaque fugiat, minima, iure
+            asperiores ratione eum ea magni ex. Aut aperiam rem incidunt vero
+            aliquid consequatur! <br />Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit. Eligendi non voluptatem dolore repellendus eaque
+            fugiat, minima, iure asperiores ratione eum ea magni ex. Aut aperiam
+            rem incidunt vero aliquid consequatur!
+          </p>
+        </div>
+      </div>
+      <!--  -->
+    </div>
+  </div>
+
+  <div class="row view-poll" style="margin-left: 1rem; margin-top: 4%">
+    <div class="col-md-8">
+      <div class="container caption">
+        <div class="vertical-center">
+          <h3 style="display: flex; justify-content: start">Chilli Powder</h3>
+          <p style="width: 80%" class="text-color">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
+            non voluptatem dolore repellendus eaque fugiat, minima, iure
+            asperiores ratione eum ea magni ex. Aut aperiam rem incidunt vero
+            aliquid consequatur! <br />
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
+            non voluptatem dolore repellendus eaque fugiat, minima, iure
+            asperiores ratione eum ea magni ex. Aut aperiam rem incidunt vero
+            aliquid consequatur! <br />Lorem ipsum dolor sit amet, consectetur
+            adipisicing elit. Eligendi non voluptatem dolore repellendus eaque
+            fugiat, minima, iure asperiores ratione eum ea magni ex. Aut aperiam
+            rem incidunt vero aliquid consequatur!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 alignment">
+      <picture>
+        <img
+          src="//raw.githubusercontent.com/codrops/HoverEffectIdeas/master/img/1.jpg"
+          alt=""
+          style="width: 400px"
+        />
+      </picture>
+    </div>
+  </div>
+
+  <!-- <div class="view-poll">
+      <picture>
+        <img
+          src="//raw.githubusercontent.com/codrops/HoverEffectIdeas/master/img/1.jpg"
+          alt=""
+          style="width: 500px"
+        />
+      </picture>
+      <div class="caption">
+        <h1></h1>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non
+          voluptatem dolore repellendus eaque fugiat, minima, iure asperiores
+          ratione eum ea magni ex. Aut aperiam rem incidunt vero aliquid
+          consequatur!
+        </p>
+      </div>
+    </div>
+    <div class="view-poll">
+      <div class="caption">
+        <h1></h1>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non
+          voluptatem dolore repellendus eaque fugiat, minima, iure asperiores
+          ratione eum ea magni ex. Aut aperiam rem incidunt vero aliquid
+          consequatur!
+        </p>
+      </div>
+      <picture>
+        <img
+          src="//raw.githubusercontent.com/codrops/HoverEffectIdeas/master/img/1.jpg"
+          alt=""
+          style="width: 500px"
+        />
+      </picture>
+    </div>
+    <div class="view-poll">
+      <picture>
+        <img
+          src="//raw.githubusercontent.com/codrops/HoverEffectIdeas/master/img/1.jpg"
+          alt=""
+          style="width: 500px"
+        />
+      </picture>
+      <div class="caption">
+        <h1></h1>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non
+          voluptatem dolore repellendus eaque fugiat, minima, iure asperiores
+          ratione eum ea magni ex. Aut aperiam rem incidunt vero aliquid
+          consequatur!
+        </p>
+      </div>
+    </div>
+    <div class="view-poll">
+      <div class="caption">
+        <h1>Lorem ipsum dolor sit amet.</h1>
+        <h2>Lorem ipsum dolor sit amet.</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non
+          voluptatem dolore repellendus eaque fugiat, minima, iure asperiores
+          ratione eum ea magni ex. Aut aperiam rem incidunt vero aliquid
+          consequatur!
+        </p>
+      </div>
+      <picture>
+        <img
+          src="//raw.githubusercontent.com/codrops/HoverEffectIdeas/master/img/1.jpg"
+          alt=""
+          style="width: 500px"
+        />
+      </picture>
+    </div> -->
+</main>
+
 <app-footer></app-footer>
