@@ -47,7 +47,7 @@ export class HeaderComponent {
   });
 
   ngOnInit(): void {
-    this.toggleSidebar(false);
+    // this.toggleSidebar(false);
     this.hideSidebar();
   }
 
@@ -57,14 +57,14 @@ export class HeaderComponent {
     config.showNavigationIndicators = true;
   }
 
-  toggleSidebar(visible: boolean): void {
-    const sidebar: HTMLElement | null = document.querySelector('.sidebar');
-    console.log(visible);
-    if (sidebar) {
-      sidebar.style.display = visible ? 'none' : 'flex';
-      // sidebar.style.visibility = visible ? 'visible' : 'hidden';
-    }
-  }
+  // toggleSidebar(visible: boolean): void {
+  //   const sidebar: HTMLElement | null = document.querySelector('.sidebar');
+  //   console.log(visible);
+  //   if (sidebar) {
+  //     sidebar.style.display = visible ? 'none' : 'flex';
+  //     // sidebar.style.visibility = visible ? 'visible' : 'hidden';
+  //   }
+  // }
 
   hideSidebar(): void {
     const sidebar: HTMLElement | null = document.querySelector('.sidebar');

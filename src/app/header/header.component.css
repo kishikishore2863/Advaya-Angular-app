@@ -1,5 +1,13 @@
 /* Media query for mobile devices  carousel*/
 @media screen and (min-width: 300px) and (max-width: 600px) {
+  .menu-bar {
+    background-color: white;
+    position: sticky;
+    top: 0px;
+    display: block;
+
+    z-index: 1;
+  }
   .hide {
     display: block;
   }
@@ -16,10 +24,11 @@
     height: 300px;
   }
   .nav-bar {
-    width: 100%;
+    /* width: 100%;
     position: absolute;
     left: 20px;
-    top: 0px;
+    top: 0px; */
+    display: none;
   }
   .nav-list {
     display: none;
@@ -249,6 +258,7 @@ nav li:first-child {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
+  z-index: 1;
   /* visibility: hidden; */
 }
 .sidebar li {
@@ -262,10 +272,10 @@ nav li:first-child {
   display: none;
 
   /* align-items: center; */
-  padding: 0px 50px;
-  background-color: transparent;
-  position: absolute;
-  top: 25px;
+  padding: 20px 50px;
+  background-color: white;
+  position: sticky;
+  top: 0px;
   width: 100%;
 }
 
