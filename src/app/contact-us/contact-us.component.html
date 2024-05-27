@@ -6,20 +6,122 @@
     <li class="breadcrumb-item2">Contact Us</li>
   </ol>
 </div>
+
+<!-- <div style="width: 100%; display: flex; justify-content: flex-end">
+  <div class="form-container">
+    <form
+      [formGroup]="contactForm"
+      (ngSubmit)="onSubmit()"
+      class="formbox"
+      action="#"
+      style="height: 520px; width: 556px"
+    >
+      <div class="mb-3" class="name">
+        <input id="name" formControlName="name" placeholder="Name*" />
+        <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+          <div
+            style="color: red; margin-left: 15px"
+            *ngIf="name?.errors?.['required']"
+          >
+            Name is required.
+          </div>
+          <div
+            style="color: red; margin-left: 15px"
+            *ngIf="name?.errors?.['minlength']"
+          >
+            Name must be at least 3 characters long.
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3" class="Email">
+        <input id="email" formControlName="email" placeholder="Email*" />
+        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+          <div
+            style="color: red; margin-left: 15px"
+            *ngIf="email?.errors?.['required']"
+          >
+            Email is required.
+          </div>
+          <div
+            style="color: red; margin-left: 15px"
+            *ngIf="email?.errors?.['email']"
+          >
+            Invalid email format.
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3" class="message">
+        <textarea
+          id="message"
+          formControlName="message"
+          placeholder="How Can I Help You?"
+          maxlength="250"
+        ></textarea>
+        <div *ngIf="message?.invalid && (message?.dirty || message?.touched)">
+          <div
+            style="color: red; margin-left: 15px"
+            *ngif="message?.errors?.['required']"
+          >
+            Message is required.
+          </div>
+          <div
+            style="color: red; margin-left: 15px"
+            *ngIf="message?.errors?.['minlength']"
+          >
+            Message must be at least 10 characters long.
+          </div>
+        </div>
+      </div>
+      <div class="mb-3" class="PhoneNumber">
+        <input
+          id="PhoneNumber"
+          formControlName="PhoneNumber"
+          placeholder="PhoneNumber*"
+        />
+        <div
+          *ngIf="
+            PhoneNumber?.invalid && (PhoneNumber?.dirty || PhoneNumber?.touched)
+          "
+        >
+          <div
+            style="color: red; margin-left: 15px"
+            *ngIf="PhoneNumber?.errors?.['required']"
+          >
+            phone number is required.
+          </div>
+          <div
+            style="color: red; margin-left: 15px"
+            *ngIf="PhoneNumber?.errors?.['maxlength']"
+          >
+            phone number must be 10 numbers
+          </div>
+        </div>
+      </div>
+
+      <div class="button">
+        <button type="submit" [disabled]="contactForm.invalid">Submit</button>
+      </div>
+    </form>
+  </div>
+</div> -->
+
 <div>
   <div class="row" style="padding: 20px">
     <div class="col-sm details">
       <div style="display: flex">
         <div>
           <img
+            class="contact-icon"
             src="../../assets/Advaya_Final_Logo(SVG).svg"
             height="50px"
             width="50px"
           />
         </div>
         <div style="margin-top: 20px">
-          <p style="margin: 0">Email</p>
-          <p [innerHTML]="'abc@gmail.com'"></p>
+          <h5>Email</h5>
+          <p [innerHTML]="'sales@readzle.com'"></p>
         </div>
       </div>
     </div>
@@ -28,14 +130,15 @@
       <div style="display: flex">
         <div>
           <img
+            class="contact-icon"
             src="../../assets/Advaya_Final_Logo(SVG).svg"
             height="50px"
             width="50px"
           />
         </div>
         <div style="margin-top: 20px">
-          <p style="margin: 0">Email</p>
-          <p [innerHTML]="'abc@gmail.com'"></p>
+          <h5>Phone number</h5>
+          <p>+91 9880108794</p>
         </div>
       </div>
     </div>
@@ -44,15 +147,108 @@
       <div class="" style="display: flex">
         <div>
           <img
+            class="contact-icon"
             src="../../assets/Advaya_Final_Logo(SVG).svg"
             height="50px"
             width="50px"
           />
         </div>
         <div style="margin-top: 20px">
-          <p>Email <span [innerHTML]="'abc@gmail.com'"></span></p>
+          <h5>Address</h5>
+          <p>
+            Address Unleash Tech Worx Pvt Ltd Spacexworks Business Services,
+            Unit3F, Level3, Century Central, Kanakapura Road, Bangalore 560062
+          </p>
         </div>
       </div>
+    </div>
+  </div>
+</div>
+
+<div class="map">
+  <iframe
+    width="100%"
+    height="600"
+    frameborder="0"
+    scrolling="no"
+    marginheight="0"
+    marginwidth="0"
+    src="https://maps.google.com/maps?width=100%25&amp;height=600&amp;hl=en&amp;q=Unleash%20Tech%20Worx%20Pvt%20Ltd%20Spacexworks%20Business%20Services,%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20Unit3F,%20Level3,%20Century%20Central,%20Kanakapura%20Road,%20Bangalore%20%20560062+(My%20Business%20Name)&amp;t=&amp;z=14&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+  ></iframe>
+</div>
+
+<div class="faq">
+  <div class="container">
+    <h1>FAQs</h1>
+    <h3>Frequently asked questions</h3>
+    <div class="main-accordion">
+      <button class="accordion">Is there a free trial available?</button>
+      <div class="panel">
+        <p>
+          It is free for all, anyone can download and register themselves. Since
+          it is a Peer to peer platform, you can utilise the book sharing
+          feature only when you and others in your neighbourhood are sharing
+          your books. Otherwise you can use this app to set your reading goals,
+          list your books and login daily readings.
+        </p>
+      </div>
+      <button class="accordion">
+        How do I add books to share with others?
+      </button>
+      <div class="panel">
+        <p>
+          You need to click the + button on the bottom right of the app. You
+          will be directed to enter the ISBN code of your book. This is usually
+          on the back cover page. It is usually a 10 or 13 digit number.
+        </p>
+      </div>
+      <button class="accordion">How do I borrow a book from others?</button>
+      <div class="panel">
+        <p>
+          You need to click on ‘Go to Library” link to see all the books
+          available in the neighbourhood. You can chose the book you would like
+          to read and hit the borrow button to borrow. You should choose to
+          either accept the borrow request and share the book with the
+          respective user or reject. Once you accept, please notify the user
+          when to pick the book from you and ask him to receive the book the app
+          once he has received it from you.
+        </p>
+      </div>
+      <button class="accordion">How do I check in my reading?</button>
+      <div class="panel">
+        <p>
+          You need to hit “start reading” button and select the book you would
+          like to read. This starts a 30mins countdown and automatically reminds
+          you after 30 What should I do when I receive a borrow request from a
+          user? mins to stop reading or continue. This is usually in packets of
+          30 mins. A min of 30 mins of reading is suggested as per research.
+        </p>
+      </div>
+      <button class="accordion">What brain rewiring?</button>
+      <div class="panel">
+        <p>
+          As you start reading books for 30 mins a day (at least), your brain
+          start to get trained on focus thinking and improve your attention
+          span. The brain rewiring help you understand how this is working on
+          you as you continue reading book. But make sure that you are using the
+          countdown clock to ensure that app understands that you are reading.
+        </p>
+      </div>
+    </div>
+  </div>
+  <div class="stil">
+    <div class="container">
+      <img src="https://readzle.com/images/Group%2024031.png" alt="" />
+      <h1>Still have questions?</h1>
+      <p>Can't find the answer you are looking for? Please write to us</p>
+      <button
+        type="button"
+        class="btn btn-primary"
+        data-bs-toggle="modal"
+        data-bs-target="#askQstn"
+      >
+        GET IN TOUCH
+      </button>
     </div>
   </div>
 </div>

@@ -183,6 +183,7 @@
     display: flex;
     justify-content: space-evenly;
     color: black;
+    cursor: pointer;
   }
   .nav-button {
     display: none;
