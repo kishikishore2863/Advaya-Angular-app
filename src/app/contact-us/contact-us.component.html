@@ -7,106 +7,6 @@
   </ol>
 </div>
 
-<!-- <div style="width: 100%; display: flex; justify-content: flex-end">
-  <div class="form-container">
-    <form
-      [formGroup]="contactForm"
-      (ngSubmit)="onSubmit()"
-      class="formbox"
-      action="#"
-      style="height: 520px; width: 556px"
-    >
-      <div class="mb-3" class="name">
-        <input id="name" formControlName="name" placeholder="Name*" />
-        <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
-          <div
-            style="color: red; margin-left: 15px"
-            *ngIf="name?.errors?.['required']"
-          >
-            Name is required.
-          </div>
-          <div
-            style="color: red; margin-left: 15px"
-            *ngIf="name?.errors?.['minlength']"
-          >
-            Name must be at least 3 characters long.
-          </div>
-        </div>
-      </div>
-
-      <div class="mb-3" class="Email">
-        <input id="email" formControlName="email" placeholder="Email*" />
-        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
-          <div
-            style="color: red; margin-left: 15px"
-            *ngIf="email?.errors?.['required']"
-          >
-            Email is required.
-          </div>
-          <div
-            style="color: red; margin-left: 15px"
-            *ngIf="email?.errors?.['email']"
-          >
-            Invalid email format.
-          </div>
-        </div>
-      </div>
-
-      <div class="mb-3" class="message">
-        <textarea
-          id="message"
-          formControlName="message"
-          placeholder="How Can I Help You?"
-          maxlength="250"
-        ></textarea>
-        <div *ngIf="message?.invalid && (message?.dirty || message?.touched)">
-          <div
-            style="color: red; margin-left: 15px"
-            *ngif="message?.errors?.['required']"
-          >
-            Message is required.
-          </div>
-          <div
-            style="color: red; margin-left: 15px"
-            *ngIf="message?.errors?.['minlength']"
-          >
-            Message must be at least 10 characters long.
-          </div>
-        </div>
-      </div>
-      <div class="mb-3" class="PhoneNumber">
-        <input
-          id="PhoneNumber"
-          formControlName="PhoneNumber"
-          placeholder="PhoneNumber*"
-        />
-        <div
-          *ngIf="
-            PhoneNumber?.invalid && (PhoneNumber?.dirty || PhoneNumber?.touched)
-          "
-        >
-          <div
-            style="color: red; margin-left: 15px"
-            *ngIf="PhoneNumber?.errors?.['required']"
-          >
-            phone number is required.
-          </div>
-          <div
-            style="color: red; margin-left: 15px"
-            *ngIf="PhoneNumber?.errors?.['maxlength']"
-          >
-            phone number must be 10 numbers
-          </div>
-        </div>
-      </div>
-
-      <div class="button">
-        <button type="submit" [disabled]="contactForm.invalid">Submit</button>
-      </div>
-    </form>
-  </div>
-</div> -->
-
 <div>
   <div class="row" style="padding: 20px">
     <div class="col-sm details">
@@ -182,7 +82,9 @@
     <h1>FAQs</h1>
     <h3>Frequently asked questions</h3>
     <div class="main-accordion">
-      <button class="accordion">Is there a free trial available?</button>
+      <button class="accordion" (click)="toggle($event)">
+        Is there a free trial available?
+      </button>
       <div class="panel">
         <p>
           It is free for all, anyone can download and register themselves. Since
@@ -192,7 +94,7 @@
           list your books and login daily readings.
         </p>
       </div>
-      <button class="accordion">
+      <button class="accordion" (click)="toggle($event)">
         How do I add books to share with others?
       </button>
       <div class="panel">
@@ -202,7 +104,9 @@
           on the back cover page. It is usually a 10 or 13 digit number.
         </p>
       </div>
-      <button class="accordion">How do I borrow a book from others?</button>
+      <button class="accordion" (click)="toggle($event)">
+        How do I borrow a book from others?
+      </button>
       <div class="panel">
         <p>
           You need to click on ‘Go to Library” link to see all the books
@@ -214,7 +118,9 @@
           once he has received it from you.
         </p>
       </div>
-      <button class="accordion">How do I check in my reading?</button>
+      <button class="accordion" (click)="toggle($event)">
+        How do I check in my reading?
+      </button>
       <div class="panel">
         <p>
           You need to hit “start reading” button and select the book you would
@@ -224,7 +130,9 @@
           30 mins. A min of 30 mins of reading is suggested as per research.
         </p>
       </div>
-      <button class="accordion">What brain rewiring?</button>
+      <button class="accordion" (click)="toggle($event)">
+        What brain rewiring?
+      </button>
       <div class="panel">
         <p>
           As you start reading books for 30 mins a day (at least), your brain
@@ -252,3 +160,4 @@
     </div>
   </div>
 </div>
+<app-footer></app-footer>

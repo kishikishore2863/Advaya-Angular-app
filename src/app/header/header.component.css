@@ -178,6 +178,7 @@
     position: sticky;
     top: 0px;
     z-index: 1;
+    box-shadow: 0px 0px 3px grey;
   }
   .nav-list {
     display: flex;
