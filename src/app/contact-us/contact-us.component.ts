@@ -21,4 +21,39 @@ export class ContactUsComponent {
       panel.classList.toggle('active');
     }
   }
+
+  contactForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.contactForm = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      email: ['', [Validators.required, Validators.email]],
+      PhoneNumber: ['', [Validators.required, Validators.maxLength(10)]],
+      message: ['', [Validators.required, Validators.minLength(10)]],
+    });
+  }
+
+  get name() {
+    return this.contactForm.get('name');
+  }
+
+  get email() {
+    return this.contactForm.get('email');
+  }
+  get PhoneNumber() {
+    return this.contactForm.get('PhoneNumber');
+  }
+
+  get message() {
+    return this.contactForm.get('message');
+  }
+
+  onSubmit() {
+    if (this.contactForm.valid) {
+      console.log('Form Submitted!', this.contactForm.value);
+      // Handle form submission
+    } else {
+      console.log('Form is invalid');
+    }
+  }
 }

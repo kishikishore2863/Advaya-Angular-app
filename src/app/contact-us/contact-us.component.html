@@ -7,6 +7,128 @@
   </ol>
 </div>
 
+<div style="width: 100%; margin-bottom: 100px">
+  <div style="margin-top: 20px">
+    <div class="banner-details">
+      <h1 class="heading1">
+        <span>CONTACT</span> <span style="color: #f96e44"> US</span>
+      </h1>
+      <h2 class="heading2">Get in touch</h2>
+      <p>
+        Want to contact us? We'd love to hear from you. Here's how you can reach
+        us. Just send us yours question or concerns and we will connect you
+        soon!
+      </p>
+    </div>
+    <div class="banner">
+      <img
+        style="width: 100%; height: 364px"
+        src="https://www.cloud4c.com/lat/sites/lat/files/2022-07/cloud4c-company-contact-1Desktop.jpg"
+        alt=""
+      />
+    </div>
+  </div>
+  <div class="form-container">
+    <form
+      [formGroup]="contactForm"
+      (ngSubmit)="onSubmit()"
+      class="formbox"
+      action="#"
+      style="width: 556px"
+    >
+      <div class="mb-3" class="name">
+        <input id="name" formControlName="name" placeholder=" Name *" />
+        <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
+          <div
+            style="color: red; margin-left: 15px"
+            *ngIf="name?.errors?.['required']"
+          >
+            Required
+          </div>
+          <div
+            style="color: red; margin-left: 15px"
+            *ngIf="name?.errors?.['minlength']"
+          >
+            Name must be at least 3 characters long.
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3" class="Email">
+        <input id="email" formControlName="email" placeholder="  Email *" />
+        <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
+          <div
+            style="color: red; margin-left: 15px"
+            *ngIf="email?.errors?.['required']"
+          >
+            Required
+          </div>
+          <div
+            style="color: red; margin-left: 15px"
+            *ngIf="email?.errors?.['email']"
+          >
+            Invalid email format.
+          </div>
+        </div>
+      </div>
+      <div class="mb-3" class="PhoneNumber">
+        <input
+          id="PhoneNumber"
+          formControlName="PhoneNumber"
+          placeholder="  PhoneNumber *"
+        />
+        <div
+          *ngIf="
+            PhoneNumber?.invalid && (PhoneNumber?.dirty || PhoneNumber?.touched)
+          "
+        >
+          <div
+            style="color: red; margin-left: 15px"
+            *ngIf="PhoneNumber?.errors?.['required']"
+          >
+            Required
+          </div>
+          <div
+            style="color: red; margin-left: 15px"
+            *ngIf="PhoneNumber?.errors?.['maxlength']"
+          >
+            phone number must must have only 10 numbers
+          </div>
+        </div>
+      </div>
+
+      <div class="mb-3" class="message">
+        <textarea
+          id="message"
+          formControlName="message"
+          placeholder=" How Can I Help You?"
+          maxlength="250"
+        ></textarea>
+        <div *ngIf="message?.invalid && (message?.dirty || message?.touched)">
+          <div
+            style="color: red; margin-left: 15px"
+            *ngif="message?.errors?.['required']"
+          >
+            Required
+          </div>
+          <div
+            style="color: red; margin-left: 15px"
+            *ngIf="message?.errors?.['minlength']"
+          >
+            Message must be at least 10 characters long.
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button class="button" type="submit" [disabled]="contactForm.invalid">
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+
 <div>
   <div class="row" style="padding: 20px">
     <div class="col-sm details">
