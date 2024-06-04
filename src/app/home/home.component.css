@@ -97,10 +97,19 @@ picture img {
   width: 100% !important;
 }
 
+/* .slider {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  height: auto;
+  padding: 10px;
+} */
+
 .slider {
   display: flex;
   position: relative;
   justify-content: center;
+  align-items: center; /* Added for vertical centering */
   height: auto;
   padding: 10px;
 }
@@ -110,30 +119,60 @@ picture img {
   overflow: hidden;
 }
 
-.overflow {
+/* .overflow {
   position: relative;
   transition: left 0.5s ease-in-out;
+} */
+.overflow {
+  display: flex; /* Added to make cards inline */
+  position: relative;
+  transition: transform 0.5s ease-in-out; /* Changed from left to transform */
+}
+.product-name {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
 }
 
-.card {
+/* .card {
   height: 300px;
   background-color: #e0e1e2;
   border-radius: 5px;
   display: inline-block;
   margin-right: 10px;
   position: relative;
+} */
+
+.card {
+  flex: 0 0 auto; /* Added to prevent card stretching */
+  height: 300px;
+  background-color: #e0e1e2;
+  border-radius: 5px;
+  margin-right: 10px;
+  position: relative;
+  overflow: hidden; /* Added to clip hidecontent */
 }
+/* .card:last-child {
+  margin-right: 0;  Remove right margin from last card 
+} */
+
 .hidecontent {
-  display: block;
+  display: none;
   align-items: last baseline;
   position: absolute;
   /* top: 100px; */
+  padding: 15px;
   bottom: 0px;
   width: 100%;
-  height: 50% !important;
+  height: auto !important;
   /* opacity: 80%; */
   background-color: white;
   background: linear-gradient(to bottom, #2b85df1d 0%, #ffffff 100%);
+}
+
+.overflow {
+  transition: transform 0.5s ease-in-out;
 }
 
 .card:hover .hidecontent {

@@ -45,16 +45,79 @@ import {
   styleUrl: './home.component.css',
 })
 export class HomeComponent implements OnInit {
+  //   arr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  //   totalCards: number = this.arr.length;
+  //   currentPage: number = 1;
+  //   pagePosition: string = '0%';
+  //   cardsPerPage: number = 0;
+  //   totalPages: number = 0;
+  //   overflowWidth: string = '';
+  //   cardWidth: string = '';
+  //   containerBoxWidth: number = 0;
+  //   containerBox: ElementRef | undefined;
+  //   @ViewChild('container', { static: true, read: ElementRef })
+  //   container!: ElementRef;
+
+  //   @HostListener('window:resize')
+  //   windowResize() {
+  //     let newCardsPerPage = this.getCardsPerPage();
+  //     if (newCardsPerPage != this.cardsPerPage) {
+  //       this.cardsPerPage = newCardsPerPage;
+  //       this.initializeSlider();
+  //       if (this.currentPage > this.totalPages) {
+  //         this.currentPage = this.totalPages;
+  //         this.populatePagePosition();
+  //       }
+  //     }
+  //   }
+
+  //   initializeSlider() {
+  //     this.totalPages = Math.ceil(this.totalCards / this.cardsPerPage);
+  //     this.overflowWidth = `calc(${this.totalPages * 100}% + ${
+  //       this.totalPages * 10
+  //     }px)`;
+  //     this.cardWidth = `calc((${100 / this.totalPages}% - ${
+  //       this.cardsPerPage * 10
+  //     }px) / ${this.cardsPerPage})`;
+  //   }
+
+  //   getCardsPerPage() {
+  //     return Math.floor(this.container.nativeElement.offsetWidth / 400);
+  //   }
+
+  //   changePage(incrementor: number) {
+  //     this.currentPage += incrementor;
+  //     this.populatePagePosition();
+  //   }
+
+  //   populatePagePosition() {
+  //     this.pagePosition = `calc(${-100 * (this.currentPage - 1)}% - ${
+  //       10 * (this.currentPage - 1)
+  //     }px)`;
+  //   }
+
+  //   image: any[] = [
+  //     '../../assets/img/unnamed.jpg',
+  //     '../../assets/img/unnamed (1).jpg',
+  //     '../../assets/img/unnamed (2).jpg',
+  //     '../../assets/img/unnamed (3).jpg',
+  //     '../../assets/img/unnamed (4).jpg',
+  //     '../../assets/img/unnamed.jpg',
+  //     '../../assets/img/unnamed (1).jpg',
+  //     '../../assets/img/unnamed (2).jpg',
+  //     '../../assets/img/unnamed (3).jpg',
+  //   ];
+
   arr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   totalCards: number = this.arr.length;
-  currentPage: number = 1;
-  pagePosition: string = '0%';
+  currentStartIndex: number = 0;
+  pagePosition: string = '0px';
   cardsPerPage: number = 0;
-  totalPages: number = 0;
-  overflowWidth: string = '';
   cardWidth: string = '';
+  overflowWidth: string = ''; // New property
   containerBoxWidth: number = 0;
   containerBox: ElementRef | undefined;
+
   @ViewChild('container', { static: true, read: ElementRef })
   container!: ElementRef;
 
@@ -64,41 +127,54 @@ export class HomeComponent implements OnInit {
     if (newCardsPerPage != this.cardsPerPage) {
       this.cardsPerPage = newCardsPerPage;
       this.initializeSlider();
-      if (this.currentPage > this.totalPages) {
-        this.currentPage = this.totalPages;
-        this.populatePagePosition();
-      }
+      this.adjustCurrentIndexAfterResize();
     }
   }
 
-  // ngOnInit() {
-  //   this.cardsPerPage = this.getCardsPerPage();
-  //   this.initializeSlider();
-  // }
-
   initializeSlider() {
-    this.totalPages = Math.ceil(this.totalCards / this.cardsPerPage);
-    this.overflowWidth = `calc(${this.totalPages * 100}% + ${
-      this.totalPages * 10
-    }px)`;
-    this.cardWidth = `calc((${100 / this.totalPages}% - ${
-      this.cardsPerPage * 10
-    }px) / ${this.cardsPerPage})`;
+    const availableWidth = this.container.nativeElement.offsetWidth - 80; // Subtract left and right arrow widths
+    const totalMargins = (this.cardsPerPage - 1) * 10; // Only inner margins
+    const cardBaseWidth = (availableWidth - totalMargins) / this.cardsPerPage;
+    this.cardWidth = `${cardBaseWidth}px`;
+    this.containerBoxWidth = this.container.nativeElement.offsetWidth;
+
+    // Calculate overflow width
+    const totalCardWidth = cardBaseWidth + 10; // Add right margin
+    this.overflowWidth = `${this.totalCards * totalCardWidth}px`;
   }
 
   getCardsPerPage() {
-    return Math.floor(this.container.nativeElement.offsetWidth / 400);
+    const containerWidth = this.container.nativeElement.offsetWidth - 80; // Subtract left and right arrow widths
+    return Math.max(1, Math.floor(containerWidth / 400)); // 400px card + 10px margin
   }
 
-  changePage(incrementor: number) {
-    this.currentPage += incrementor;
-    this.populatePagePosition();
+  slideLeft() {
+    if (this.currentStartIndex < this.totalCards - this.cardsPerPage) {
+      this.currentStartIndex++;
+      this.populatePagePosition();
+    }
+  }
+
+  slideRight() {
+    if (this.currentStartIndex > 0) {
+      this.currentStartIndex--;
+      this.populatePagePosition();
+    }
   }
 
   populatePagePosition() {
-    this.pagePosition = `calc(${-100 * (this.currentPage - 1)}% - ${
-      10 * (this.currentPage - 1)
-    }px)`;
+    const cardBaseWidth = parseFloat(this.cardWidth.replace('px', ''));
+    const cardWidthWithMargin = cardBaseWidth + 10;
+    const newPosition = -this.currentStartIndex * cardWidthWithMargin;
+    this.pagePosition = `${newPosition}px`;
+  }
+
+  adjustCurrentIndexAfterResize() {
+    const maxStartIndex = this.totalCards - this.cardsPerPage;
+    if (this.currentStartIndex > maxStartIndex) {
+      this.currentStartIndex = Math.max(0, maxStartIndex);
+      this.populatePagePosition();
+    }
   }
 
   image: any[] = [
@@ -141,6 +217,8 @@ export class HomeComponent implements OnInit {
     };
     this.toggleSidebar(false);
     this.hideSidebar();
+    // this.cardsPerPage = this.getCardsPerPage();
+    // this.initializeSlider();
     this.cardsPerPage = this.getCardsPerPage();
     this.initializeSlider();
   }
