@@ -189,6 +189,73 @@ export class HomeComponent implements OnInit {
     '../../assets/img/unnamed (3).jpg',
   ];
 
+  // testimonials: any[] = [
+  //   {
+  //     name: 'kishore',
+  //     post: 'develpoer',
+  //     image: '../../assets/img/IMG_5304.jpeg',
+  //     info: 'bfjbfjhbwhfbjhafbhjbafhjbakfbhjkfhbjhabfhjbvhjbahbhbvuhebhbchheb hj bceh ehwj',
+  //   },
+  //   {
+  //     name: 'kishore',
+  //     post: 'develpoer',
+  //     image: '../../assets/img/IMG_5304.jpeg',
+  //     info: 'bfjbfjhbwhfbjhafbhjbafhjbakfbhjkfhbjhabfhjbvhjbahbhbvuhebhbchheb hj bceh ehwj',
+  //   },
+  //   {
+  //     name: 'kishore',
+  //     post: 'develpoer',
+  //     image: '../../assets/img/IMG_5304.jpeg',
+  //     info: 'bfjbfjhbwhfbjhafbhjbafhjbakfbhjkfhbjhabfhjbvhjbahbhbvuhebhbchheb hj bceh ehwj',
+  //   },
+  //   {
+  //     name: 'kishore',
+  //     post: 'develpoer',
+  //     image: '../../assets/img/IMG_5304.jpeg',
+  //     info: 'bfjbfjhbwhfbjhafbhjbafhjbakfbhjkfhbjhabfhjbvhjbahbhbvuhebhbchheb hj bceh ehwj',
+  //   },
+  //   {
+  //     name: 'kishore',
+  //     post: 'develpoer',
+  //     image: '../../assets/img/IMG_5304.jpeg',
+  //     info: 'bfjbfjhbwhfbjhafbhjbafhjbakfbhjkfhbjhabfhjbvhjbahbhbvuhebhbchheb hj bceh ehwj',
+  //   },
+  // ];
+
+  testimonials: any[] = [
+    {
+      id: 1,
+      name: 'Jim Sheppard',
+      company: 'Visionary Marketing Co.',
+      quote:
+        'Their HTML5 mobile-first approach revolutionized our tablet publishing.',
+      imageUrl: '../../assets/img/IMG_5304.jpeg',
+    },
+    {
+      id: 2,
+      name: 'Alice Johnson',
+      company: 'Tech Innovators',
+      quote: 'The gamification elements boosted user engagement significantly.',
+      imageUrl: '../../assets/img/IMG_5304.jpeg',
+    },
+    {
+      id: 3,
+      name: 'Carlos Rivera',
+      company: 'Data Insights',
+      quote:
+        'Their semantic web strategy added real value to our market research.',
+      imageUrl: '../../assets/img/IMG_5304.jpeg',
+    },
+  ];
+
+  currentTestimonial: any;
+  currentIndex: number = 0;
+
+  nextTestimonial() {
+    this.currentIndex = (this.currentIndex + 1) % this.testimonials.length;
+    this.currentTestimonial = this.testimonials[this.currentIndex];
+  }
+
   slides: any[] = new Array(4).fill({
     id: -1,
     src: '',
@@ -217,10 +284,10 @@ export class HomeComponent implements OnInit {
     };
     this.toggleSidebar(false);
     this.hideSidebar();
-    // this.cardsPerPage = this.getCardsPerPage();
-    // this.initializeSlider();
     this.cardsPerPage = this.getCardsPerPage();
     this.initializeSlider();
+    this.currentTestimonial = this.testimonials[0];
+    setInterval(() => this.nextTestimonial(), 5000);
   }
 
   showNavigationArrows = false;
