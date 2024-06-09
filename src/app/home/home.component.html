@@ -159,7 +159,16 @@
     [ngClass]="{ disabled: currentPage === totalPages }"
   ></div>
 </div> -->
-
+<h1
+  style="
+    margin-top: 20px;
+    font-size: x-large !important ;
+    font-family: sans-serif;
+    margin-left: 20px;
+  "
+>
+  Other Products
+</h1>
 <div class="container slider" #container style="max-width: 100% !important">
   <div
     class="left"
@@ -263,7 +272,7 @@
   <div class="profile-row">
     <div
       class="profile"
-      *ngFor="let testimonial of testimonials"
+      *ngFor="let testimonial of testimonials; let i = index"
       [class.active]="testimonial.id === currentTestimonial.id"
     >
       <img [src]="testimonial.imageUrl" [alt]="testimonial.name" />
@@ -271,6 +280,7 @@
         {{ testimonial.name }}<br />
         <span class="company">{{ testimonial.company }}</span>
       </p>
+      <div class="arrow" *ngIf="testimonial.id === currentTestimonial.id"></div>
     </div>
   </div>
 </div>

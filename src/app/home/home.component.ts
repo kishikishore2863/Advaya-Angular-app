@@ -131,6 +131,18 @@ export class HomeComponent implements OnInit {
     }
   }
 
+  // initializeSlider() {
+  //   const availableWidth = this.container.nativeElement.offsetWidth - 80; // Subtract left and right arrow widths
+  //   const totalMargins = (this.cardsPerPage - 1) * 10; // Only inner margins
+  //   const cardBaseWidth = (availableWidth - totalMargins) / this.cardsPerPage;
+  //   this.cardWidth = `${cardBaseWidth}px`;
+  //   this.containerBoxWidth = this.container.nativeElement.offsetWidth;
+
+  //   // Calculate overflow width
+  //   const totalCardWidth = cardBaseWidth + 10; // Add right margin
+  //   this.overflowWidth = `${this.totalCards * totalCardWidth}px`;
+  // }
+
   initializeSlider() {
     const availableWidth = this.container.nativeElement.offsetWidth - 80; // Subtract left and right arrow widths
     const totalMargins = (this.cardsPerPage - 1) * 10; // Only inner margins
@@ -138,9 +150,12 @@ export class HomeComponent implements OnInit {
     this.cardWidth = `${cardBaseWidth}px`;
     this.containerBoxWidth = this.container.nativeElement.offsetWidth;
 
-    // Calculate overflow width
+    // Calculate overflow width based on the number of visible cards
     const totalCardWidth = cardBaseWidth + 10; // Add right margin
-    this.overflowWidth = `${this.totalCards * totalCardWidth}px`;
+    const visibleCardsWidth = this.cardsPerPage * totalCardWidth;
+    const remainingCardsWidth =
+      (this.totalCards - this.cardsPerPage) * totalCardWidth;
+    this.overflowWidth = `${visibleCardsWidth + remainingCardsWidth}px`;
   }
 
   getCardsPerPage() {
@@ -416,5 +431,22 @@ export class HomeComponent implements OnInit {
       requestAnimationFrame(() => this.update());
       this.ticking = true;
     }
+  }
+  calculateArrowPosition(index: any): string {
+    const totalProfiles = this.testimonials.length;
+    const containerWidth = this.container.nativeElement.offsetWidth;
+    const profileWidth = 80; // Adjust this value based on the actual profile width
+    const spacing = 20; // Adjust this value based on the desired spacing between profiles
+
+    const totalWidth =
+      profileWidth * totalProfiles + spacing * (totalProfiles - 1);
+    const leftOffset = (containerWidth - totalWidth) / 2;
+
+    let position = leftOffset;
+    for (let i = 0; i < index; i++) {
+      position += profileWidth + spacing;
+    }
+
+    return `${position}px`;
   }
 }
