@@ -1,4 +1,10 @@
 import { ViewChild } from '@angular/core';
+
+import { Chart } from 'chart.js';
+
+import { ImportsModule } from '../import';
+import { Product } from '../../domain/product';
+import { ProductService } from '../../service/productservice';
 import {
   Component,
   OnInit,
@@ -7,6 +13,9 @@ import {
   Renderer2,
 } from '@angular/core';
 import { NgFor, CommonModule } from '@angular/common';
+import { CarouselModule } from 'primeng/carousel';
+import { ButtonModule } from 'primeng/button';
+import { TagModule } from 'primeng/tag';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -40,11 +49,18 @@ import {
     FormsModule,
     HttpClientModule,
     CommonModule,
+    CarouselModule,
+    ButtonModule,
+    TagModule,
+    ImportsModule,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
+  providers: [ProductService],
 })
 export class HomeComponent implements OnInit {
+  products: Product[] = [];
+  responsiveOptions: any[] | undefined;
   //   arr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   //   totalCards: number = this.arr.length;
   //   currentPage: number = 1;
@@ -204,39 +220,6 @@ export class HomeComponent implements OnInit {
     '../../assets/img/unnamed (3).jpg',
   ];
 
-  // testimonials: any[] = [
-  //   {
-  //     name: 'kishore',
-  //     post: 'develpoer',
-  //     image: '../../assets/img/IMG_5304.jpeg',
-  //     info: 'bfjbfjhbwhfbjhafbhjbafhjbakfbhjkfhbjhabfhjbvhjbahbhbvuhebhbchheb hj bceh ehwj',
-  //   },
-  //   {
-  //     name: 'kishore',
-  //     post: 'develpoer',
-  //     image: '../../assets/img/IMG_5304.jpeg',
-  //     info: 'bfjbfjhbwhfbjhafbhjbafhjbakfbhjkfhbjhabfhjbvhjbahbhbvuhebhbchheb hj bceh ehwj',
-  //   },
-  //   {
-  //     name: 'kishore',
-  //     post: 'develpoer',
-  //     image: '../../assets/img/IMG_5304.jpeg',
-  //     info: 'bfjbfjhbwhfbjhafbhjbafhjbakfbhjkfhbjhabfhjbvhjbahbhbvuhebhbchheb hj bceh ehwj',
-  //   },
-  //   {
-  //     name: 'kishore',
-  //     post: 'develpoer',
-  //     image: '../../assets/img/IMG_5304.jpeg',
-  //     info: 'bfjbfjhbwhfbjhafbhjbafhjbakfbhjkfhbjhabfhjbvhjbahbhbvuhebhbchheb hj bceh ehwj',
-  //   },
-  //   {
-  //     name: 'kishore',
-  //     post: 'develpoer',
-  //     image: '../../assets/img/IMG_5304.jpeg',
-  //     info: 'bfjbfjhbwhfbjhafbhjbafhjbakfbhjkfhbjhabfhjbvhjbahbhbvuhebhbchheb hj bceh ehwj',
-  //   },
-  // ];
-
   testimonials: any[] = [
     {
       id: 1,
@@ -303,6 +286,27 @@ export class HomeComponent implements OnInit {
     this.initializeSlider();
     this.currentTestimonial = this.testimonials[0];
     setInterval(() => this.nextTestimonial(), 5000);
+    this.productService.getProductsSmall().then((products) => {
+      this.products = products;
+    });
+
+    this.responsiveOptions = [
+      {
+        breakpoint: '1199px',
+        numVisible: 1,
+        numScroll: 1,
+      },
+      {
+        breakpoint: '991px',
+        numVisible: 2,
+        numScroll: 1,
+      },
+      {
+        breakpoint: '767px',
+        numVisible: 1,
+        numScroll: 1,
+      },
+    ];
   }
 
   showNavigationArrows = false;
@@ -321,7 +325,8 @@ export class HomeComponent implements OnInit {
     private elementRef: ElementRef,
     private renderer: Renderer2,
     config: NgbCarouselConfig,
-    private route: Router
+    private route: Router,
+    private productService: ProductService
   ) {
     this.inView({
       selector: '.view-poll',
@@ -448,5 +453,18 @@ export class HomeComponent implements OnInit {
     }
 
     return `${position}px`;
+  }
+
+  getSeverity(status: string) {
+    switch (status) {
+      case 'INSTOCK':
+        return 'success';
+      case 'LOWSTOCK':
+        return 'warning';
+      case 'OUTOFSTOCK':
+        return 'danger';
+      default:
+        return 'info'; // Default return value
+    }
   }
 }
