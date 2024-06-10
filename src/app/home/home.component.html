@@ -122,43 +122,6 @@
   </div>
 </main>
 
-<!-- <div class="container slider" #container>
-  <div
-    class="left"
-    *ngIf="totalPages > 1"
-    (click)="currentPage != 1 && changePage(-1)"
-    [ngClass]="{ disabled: currentPage === 1 }"
-  ></div>
-
-  <div class="cards" [ngClass]="{ 'w-100': totalPages === 1 }">
-    <div
-      class="overflow"
-      [ngStyle]="{ width: overflowWidth, left: pagePosition }"
-    >
-      <div
-        class="card"
-        *ngFor="let i of image; let index = index"
-        [ngStyle]="{ width: cardWidth }"
-      >
-        <img src="{{ i }}" alt="" width="100%" height="100%" />
-        <div class="hidecontent">
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio ipsa
-          esse ea ducimus recusandae? AmetLorem ipsum dolor sit amet
-          consectetur, adipisicing elit. Odio ipsa esse ea ducimus recusandae?
-          AmetLorem ipsum dolor sit amet consectetur, adipisicing elit. Odio
-          ipsa esse ea ducimus recusandae? Amet asperiores alias numquam eum
-          hic?
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    class="right"
-    *ngIf="totalPages > 1"
-    (click)="currentPage != totalPages && changePage(+1)"
-    [ngClass]="{ disabled: currentPage === totalPages }"
-  ></div>
-</div> -->
 <h1
   style="
     margin-top: 20px;
@@ -169,7 +132,12 @@
 >
   Other Products
 </h1>
-<div class="container slider" #container style="max-width: 100% !important">
+
+<div
+  class="container slider"
+  #container
+  style="max-width: 100% !important; display: none"
+>
   <div
     class="left"
     (click)="slideRight()"
@@ -215,6 +183,56 @@
     (click)="slideLeft()"
     [ngClass]="{ disabled: currentStartIndex >= totalCards - cardsPerPage }"
   ></div>
+</div>
+
+<div class="p-container">
+  <p-carousel
+    [value]="products"
+    [numVisible]="3"
+    [numScroll]="1"
+    [responsiveOptions]="responsiveOptions"
+    [showIndicators]="false"
+    [ngClass]="{ 'p-carousel-indicators': false }"
+    class="p-carousel"
+  >
+    <ng-template
+      let-product
+      pTemplate="item"
+      [ngStyle]="{ 'background-color': 'white' }"
+    >
+      <div class="m-2 p-3" style="border-radius: 10px">
+        <div class="mb-3">
+          <div class="relative mx-auto" style="border-radius: 10px">
+            <img
+              style="border-radius: 10px"
+              src="{{ product.image }}"
+              [alt]="product.name"
+              class="p-img"
+            />
+            <div class="hidecontent">
+              <div>Advaya</div>
+              <div class="product-name">
+                <h1>Ghee</h1>
+                <div
+                  style="
+                    font-family: Arial, Helvetica, sans-serif;
+                    font-size: 18px;
+                  "
+                >
+                  grams
+                  <div>price</div>
+                </div>
+              </div>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit. Odio
+              ipsa esse ea ducimus recusandae? AmetLorem ipsum dolor sit amet
+              consectetur, adipisicing elit. Odio ipsa esse ea ducimus
+              recusandae?
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
 </div>
 
 <div
@@ -268,6 +286,7 @@
   <div class="quote-container">
     <blockquote>"{{ currentTestimonial.quote }}"</blockquote>
   </div>
+  <hr />
 
   <div class="profile-row">
     <div
@@ -275,11 +294,14 @@
       *ngFor="let testimonial of testimonials; let i = index"
       [class.active]="testimonial.id === currentTestimonial.id"
     >
-      <img [src]="testimonial.imageUrl" [alt]="testimonial.name" />
-      <p class="name" *ngIf="testimonial.id === currentTestimonial.id">
-        {{ testimonial.name }}<br />
-        <span class="company">{{ testimonial.company }}</span>
-      </p>
+      <div>
+        <img [src]="testimonial.imageUrl" [alt]="testimonial.name" />
+        <p class="name" *ngIf="testimonial.id === currentTestimonial.id">
+          {{ testimonial.name }}<br />
+          <span class="company">{{ testimonial.company }}</span>
+        </p>
+      </div>
+
       <div class="arrow" *ngIf="testimonial.id === currentTestimonial.id"></div>
     </div>
   </div>
@@ -320,44 +342,3 @@
 </div> -->
 
 <app-footer></app-footer>
-
-<p-carousel
-  [value]="products"
-  [numVisible]="3"
-  [numScroll]="1"
-  [responsiveOptions]="responsiveOptions"
->
-  <ng-template let-product pTemplate="item">
-    <div class="border-1 surface-border border-round m-2 p-3">
-      <div class="mb-3">
-        <div class="relative mx-auto">
-          <img
-            src="https://primefaces.org/cdn/primeng/images/demo/product/{{
-              product.image
-            }}"
-            [alt]="product.name"
-            class="w-full border-round"
-          />
-          <p-tag
-            [value]="product.inventoryStatus"
-            [severity]="getSeverity(product.inventoryStatus)"
-            class="absolute"
-            [ngStyle]="{ 'left.px': 5, 'top.px': 5 }"
-          />
-        </div>
-      </div>
-      <div class="mb-3 font-medium">
-        {{ product.name }}
-      </div>
-      <div class="flex justify-content-between align-items-center">
-        <div class="mt-0 font-semibold text-xl">
-          {{ "$" + product.price }}
-        </div>
-        <span>
-          <p-button icon="pi pi-heart" severity="secondary" [outlined]="true" />
-          <p-button icon="pi pi-shopping-cart" styleClass="ml-2" />
-        </span>
-      </div>
-    </div>
-  </ng-template>
-</p-carousel>

@@ -61,68 +61,6 @@ import {
 export class HomeComponent implements OnInit {
   products: Product[] = [];
   responsiveOptions: any[] | undefined;
-  //   arr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  //   totalCards: number = this.arr.length;
-  //   currentPage: number = 1;
-  //   pagePosition: string = '0%';
-  //   cardsPerPage: number = 0;
-  //   totalPages: number = 0;
-  //   overflowWidth: string = '';
-  //   cardWidth: string = '';
-  //   containerBoxWidth: number = 0;
-  //   containerBox: ElementRef | undefined;
-  //   @ViewChild('container', { static: true, read: ElementRef })
-  //   container!: ElementRef;
-
-  //   @HostListener('window:resize')
-  //   windowResize() {
-  //     let newCardsPerPage = this.getCardsPerPage();
-  //     if (newCardsPerPage != this.cardsPerPage) {
-  //       this.cardsPerPage = newCardsPerPage;
-  //       this.initializeSlider();
-  //       if (this.currentPage > this.totalPages) {
-  //         this.currentPage = this.totalPages;
-  //         this.populatePagePosition();
-  //       }
-  //     }
-  //   }
-
-  //   initializeSlider() {
-  //     this.totalPages = Math.ceil(this.totalCards / this.cardsPerPage);
-  //     this.overflowWidth = `calc(${this.totalPages * 100}% + ${
-  //       this.totalPages * 10
-  //     }px)`;
-  //     this.cardWidth = `calc((${100 / this.totalPages}% - ${
-  //       this.cardsPerPage * 10
-  //     }px) / ${this.cardsPerPage})`;
-  //   }
-
-  //   getCardsPerPage() {
-  //     return Math.floor(this.container.nativeElement.offsetWidth / 400);
-  //   }
-
-  //   changePage(incrementor: number) {
-  //     this.currentPage += incrementor;
-  //     this.populatePagePosition();
-  //   }
-
-  //   populatePagePosition() {
-  //     this.pagePosition = `calc(${-100 * (this.currentPage - 1)}% - ${
-  //       10 * (this.currentPage - 1)
-  //     }px)`;
-  //   }
-
-  //   image: any[] = [
-  //     '../../assets/img/unnamed.jpg',
-  //     '../../assets/img/unnamed (1).jpg',
-  //     '../../assets/img/unnamed (2).jpg',
-  //     '../../assets/img/unnamed (3).jpg',
-  //     '../../assets/img/unnamed (4).jpg',
-  //     '../../assets/img/unnamed.jpg',
-  //     '../../assets/img/unnamed (1).jpg',
-  //     '../../assets/img/unnamed (2).jpg',
-  //     '../../assets/img/unnamed (3).jpg',
-  //   ];
 
   arr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   totalCards: number = this.arr.length;
@@ -234,7 +172,7 @@ export class HomeComponent implements OnInit {
       name: 'Alice Johnson',
       company: 'Tech Innovators',
       quote: 'The gamification elements boosted user engagement significantly.',
-      imageUrl: '../../assets/img/IMG_5304.jpeg',
+      imageUrl: '../../assets/88dee779-c6b2-4d1e-a876-c2510de23280.jpeg',
     },
     {
       id: 3,
@@ -242,6 +180,21 @@ export class HomeComponent implements OnInit {
       company: 'Data Insights',
       quote:
         'Their semantic web strategy added real value to our market research.',
+      imageUrl: '../../assets/img/IMG_5304.jpeg',
+    },
+    {
+      id: 4,
+      name: 'Jim Sheppard',
+      company: 'Visionary Marketing Co.',
+      quote:
+        'Their HTML5 mobile-first approach revolutionized our tablet publishing.',
+      imageUrl: '../../assets/88dee779-c6b2-4d1e-a876-c2510de23280.jpeg',
+    },
+    {
+      id: 5,
+      name: 'Alice Johnson',
+      company: 'Tech Innovators',
+      quote: 'The gamification elements boosted user engagement significantly.',
       imageUrl: '../../assets/img/IMG_5304.jpeg',
     },
   ];
