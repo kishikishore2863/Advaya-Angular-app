@@ -305,6 +305,18 @@ blockquote {
   background-color: #ffffff !important;
 }
 
+.description{
+  color: black;
+  width: 50% !important;
+}
+.youtube{
+  color: black;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  margin-left: 50px !important;
+  padding-top: 2rem !important;
+  font-style: normal;
+}
+
 /* destop view */
 @media screen and (min-width: 600px) and (max-width: 2550px) {
   .bSlide-img {

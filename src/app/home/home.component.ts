@@ -1,6 +1,6 @@
 import { ViewChild } from '@angular/core';
 
-import { Chart } from 'chart.js';
+// import { Chart } from 'chart.js';
 
 import { ImportsModule } from '../import';
 import { Product } from '../../domain/product';
