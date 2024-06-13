@@ -1,0 +1,100 @@
+<div style="margin-top: 3rem">
+  <h3 style="margin-left: 10px">OUR PRODUCTS</h3>
+  <!-- <div class=""> -->
+  <div class="row" *ngFor="let data of products">
+    <div class="col-md-4">
+      <p-carousel
+        [value]="data.imagedata"
+        [numVisible]="1"
+        [numScroll]="1"
+        [responsiveOptions]="responsiveOptions"
+        [showIndicators]="true"
+        [ngClass]="{ 'p-carousel-indicators': false }"
+        class="p-carousel"
+      >
+        <ng-template
+          let-product
+          pTemplate="item"
+          [ngStyle]="{ 'background-color': 'white' }"
+        >
+          <div
+            class="border-1 surface-border border-round m-2 p-3"
+            style="border-radius: 10px"
+          >
+            <div class="mb-3">
+              <div class="relative mx-auto" style="border-radius: 10px">
+                <img
+                  style="border-radius: 10px"
+                  [src]="product.image"
+                  [alt]="product.name"
+                  class="p-img"
+                />
+              </div>
+            </div>
+          </div>
+        </ng-template>
+      </p-carousel>
+    </div>
+
+    <div class="col-md-7" style="margin-left: 5px; margin-top: 10px">
+      <h4>{{ data.productName }}</h4>
+      <p>
+        {{ data.description }}
+      </p>
+      <div class="row">
+        <div class="col weight" *ngFor="let item of data.data">
+          <p class="pro-weight">{{ item.weight }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div
+    style="
+      width: 100%;
+      background-color: #41210a;
+      text-align: center;
+      padding: 50px 0 50px 0;
+    "
+  >
+    <label
+      style="
+        color: #eccbb9;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-weight: bold;
+        font-size: xx-large;
+      "
+      >Do you have a bulk order?</label
+    ><br />
+    <label style="color: #eccbb9">Contact: +91 1234567890 | infogmail.com</label
+    ><br />
+    <label
+      style="
+        color: #ffffff;
+        padding: 10px 0 10px 0;
+        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        font-size: x-large;
+      "
+    >
+      or</label
+    ><br />
+    <input
+      placeholder="Enter your e-mail address"
+      style="padding: 5px 5rem 5px 5rem; background-color: #41210a"
+    /><br /><br />
+
+    <div style="display: flex; justify-content: center">
+      <div
+        style="
+          padding: 5px 10px 5px 10px;
+          border-radius: 50px;
+          color: #41210a;
+          background-color: beige;
+          width: 100px;
+        "
+      >
+        <label> Submit</label>
+      </div>
+    </div>
+  </div>
+</div>

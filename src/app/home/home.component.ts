@@ -61,6 +61,7 @@ import {
 export class HomeComponent implements OnInit {
   products: Product[] = [];
   responsiveOptions: any[] | undefined;
+  sliderImage:any;
 
   arr: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   totalCards: number = this.arr.length;
@@ -190,13 +191,6 @@ export class HomeComponent implements OnInit {
         'Their HTML5 mobile-first approach revolutionized our tablet publishing.',
       imageUrl: '../../assets/88dee779-c6b2-4d1e-a876-c2510de23280.jpeg',
     },
-    {
-      id: 5,
-      name: 'Alice Johnson',
-      company: 'Tech Innovators',
-      quote: 'The gamification elements boosted user engagement significantly.',
-      imageUrl: '../../assets/img/IMG_5304.jpeg',
-    },
   ];
 
   currentTestimonial: any;
@@ -239,8 +233,9 @@ export class HomeComponent implements OnInit {
     this.initializeSlider();
     this.currentTestimonial = this.testimonials[0];
     setInterval(() => this.nextTestimonial(), 5000);
-    this.productService.getProductsSmall().then((products) => {
-      this.products = products;
+    this.productService. getSliderCards().then((products) => {
+      this.sliderImage= products;
+      debugger
     });
 
     this.responsiveOptions = [

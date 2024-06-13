@@ -1,0 +1,46 @@
+/* .p-container{
+    width: 70%;
+}
+.contents{
+    display: flex;
+}
+.product-details{
+    align-items: center;
+} */
+
+
+.p-carousel-indicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+  }
+  
+  .p-carousel-indicator.p-highlight {
+    background-color: #007ad9; 
+  }
+  
+  .p-carousel-indicator {
+    background-color: #ccc; 
+  }
+
+  .pro-weight{
+    padding: 5px;
+    width: 100px;
+    text-align: center;
+    border-radius: 50px;
+    background-color: lightgray;
+  }
+
+
+  p.hoverable {
+    background-color: lightgray;
+    transition: background-color 0.3s;
+  }
+  
+  p.hoverable:hover {
+    background-color: red;
+  }
+  .pro-weight:hover {
+    background-color: red;
+    color: lightgray;
+  }

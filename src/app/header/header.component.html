@@ -3,7 +3,7 @@
     <img
       style="height: 75px; width: 75px"
       class="nav-logo"
-      src="../../assets/Advaya_Final_Logo(SVG).svg"
+      src="../../assets/img/logoAdvaya.png"
       alt="Advaya Logo"
     />
   </div>
@@ -14,8 +14,8 @@
     style="margin: 0 !important; align-self: center"
   >
     <li (click)="redirectToHome()">HOME</li>
-    <li style="margin-left: 30px">ABOUT US</li>
-    <li style="margin-left: 30px">PRODUCTS</li>
+    <li (click)="know()"  style="margin-left: 30px">KNOW US</li>
+    <li  (click)="products()" style="margin-left: 30px">PRODUCTS</li>
     <li (click)="contact()" style="margin: 0px 30px">CONTACT US</li>
   </ul>
 </div>
@@ -40,8 +40,8 @@
       </li>
       <li><a (click)="redirectToHome()">HOME</a></li>
 
-      <li><a routerLink="">ABOUT US</a></li>
-      <li><a routerLink="">PRODUCTS</a></li>
+      <li><a (click)="know()"  routerLink="">KNOW US</a></li>
+      <li><a (click)="products()" routerLink="">PRODUCTS</a></li>
       <li><a (click)="contact()" routerLink="">CONTACT US</a></li>
     </ul>
   </nav>

@@ -185,9 +185,9 @@
   ></div>
 </div>
 
-<div class="p-container">
+<div class="p-container" *ngFor="let img of sliderImage">
   <p-carousel
-    [value]="products"
+    [value]="img.data"
     [numVisible]="3"
     [numScroll]="1"
     [responsiveOptions]="responsiveOptions"
@@ -196,19 +196,23 @@
     class="p-carousel"
   >
     <ng-template
-      let-product
+      let-img
       pTemplate="item"
       [ngStyle]="{ 'background-color': 'white' }"
     >
-      <div class="m-2 p-3" style="border-radius: 10px">
+      <div
+        class="border-1 surface-border border-round m-2 p-3"
+        style="border-radius: 10px"
+      >
         <div class="mb-3">
           <div class="relative mx-auto" style="border-radius: 10px">
             <img
               style="border-radius: 10px"
-              src="{{ product.image }}"
-              [alt]="product.name"
+              [src]="img.image"
+              [alt]=""
               class="p-img"
             />
+
             <div class="hidecontent">
               <div>Advaya</div>
               <div class="product-name">
@@ -283,8 +287,82 @@
 </div>
 
 <h2 class="youtube">We Commit Quality</h2>
+<div style="margin-left: 50px; margin-bottom: 20px">How? Check out now.</div>
+
+<!-- <div style="width: 100%; display: flex;">
+  <div style="width: 40%; padding-left: 50px; ">
+    <iframe
+    width="100%"
+    height="300"
+    
+    src="https://www.youtube.com/embed/DnbsdFhB5XE"
+  >
+  </iframe>
+ </div>
+  <div style="width: 50%; padding-left: 40px;">
+    <h1 style="margin-bottom:20px;">Video title goes here</h1>
+    <p class="description">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non
+      voluptatem dolore repellendus eaque fugiat, minima, iure asperiores
+      ratione eum ea magni ex. Aut aperiam rem incidunt vero aliquid
+      consequatur!
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non
+      voluptatem dolore repellendus eaque fugiat, minima, iure asperiores
+      ratione eum ea magni ex. Aut aperiam rem incidunt vero aliquid
+      consequatur! <br />
+    </p>
+  </div>
+</div> -->
+
+<div class="youtube-video-container">
+  <div class="yt">
+    <iframe
+      width="100%"
+      height="300"
+      src="https://www.youtube.com/embed/DnbsdFhB5XE"
+    >
+    </iframe>
+  </div>
+  <div class="yt-details">
+    <h1 style="margin-bottom: 20px">Video title goes here</h1>
+    <p class="description">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non
+      voluptatem dolore repellendus eaque fugiat, minima, iure asperiores
+      ratione eum ea magni ex. Aut aperiam rem incidunt vero aliquid
+      consequatur! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Eligendi non voluptatem dolore repellendus eaque fugiat, minima, iure
+      asperiores ratione eum ea magni ex. Aut aperiam rem incidunt vero aliquid
+      consequatur! <br />
+    </p>
+  </div>
+</div>
+
+<div class="youtube-video-container">
+  <div class="yt">
+    <iframe
+      width="100%"
+      height="300"
+      src="https://www.youtube.com/embed/DnbsdFhB5XE"
+    >
+    </iframe>
+  </div>
+  <div class="yt-details">
+    <h1 style="margin-bottom: 20px">Video title goes here</h1>
+    <p class="description">
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi non
+      voluptatem dolore repellendus eaque fugiat, minima, iure asperiores
+      ratione eum ea magni ex. Aut aperiam rem incidunt vero aliquid
+      consequatur! Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+      Eligendi non voluptatem dolore repellendus eaque fugiat, minima, iure
+      asperiores ratione eum ea magni ex. Aut aperiam rem incidunt vero aliquid
+      consequatur! <br />
+    </p>
+  </div>
+</div>
+
+<!-- <h2 class="youtube">We Commit Quality</h2>
 <div style="margin-left: 50px;">How? Check out now.</div>
-<div class="row" style="margin-left: 1rem; margin-top: 4%">
+<div class="row" style="margin-left: 1rem; margin-top: 4%; width: 100%;">
   <div class="col-md-5 alignment">
     <picture>
       <iframe
@@ -321,7 +399,7 @@
         </p>
       </div>
     </div>
-    <!--  -->
+    
   </div>
 </div>
 <div class="row" style="margin-left: 1rem; margin-top: 4%">
@@ -361,9 +439,7 @@
       </div>
     </div>
   </div>
-</div>
-
-
+</div> -->
 
 <div class="testimonial-carousel">
   <div class="quote-container">
@@ -423,5 +499,3 @@
     </div>
   </div>
 </div> -->
-
-<app-footer></app-footer>

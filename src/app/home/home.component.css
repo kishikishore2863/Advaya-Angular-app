@@ -294,7 +294,7 @@ blockquote {
 }
 
 .p-carousel {
-  background-color: #9e015e;
+  background-color: #ffffff;
 }
 
 .p-img {
@@ -305,10 +305,7 @@ blockquote {
   background-color: #ffffff !important;
 }
 
-.description{
-  color: black;
-  width: 50% !important;
-}
+
 .youtube{
   color: black;
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -316,6 +313,22 @@ blockquote {
   padding-top: 2rem !important;
   font-style: normal;
 }
+
+.youtube-video-container{
+  width: 100%; display: flex; margin-top: 20px;
+}
+
+
+.yt{
+  width: 40%; padding-left: 50px;
+}
+
+.yt-details{
+  width: 50%; padding-left: 40px;
+
+}
+
+
 
 /* destop view */
 @media screen and (min-width: 600px) and (max-width: 2550px) {
@@ -425,4 +438,22 @@ blockquote {
   .p-container {
     display: none;
   }
+  .youtube-video-container{
+    width: 100%; display: flex; margin-top: 20px; flex-direction: column;justify-content: center;
+  }
+  .yt{
+    width: 90%; 
+    padding: 5px;
+    align-self: center;
+   
+  }
+  
+  .yt-details{
+    width: 90%; 
+    padding: 5px;
+    align-self: center;
+
+  
+  }
+
 }

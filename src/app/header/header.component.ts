@@ -95,4 +95,13 @@ export class HeaderComponent {
     this.route.navigate(['/contactus']);
     this.hideSidebar();
   }
+  products() {
+    this.route.navigate(['/products']);
+    this.hideSidebar();
+  }
+
+  know() {
+    this.route.navigate(['/know-us']);
+    this.hideSidebar();
+  }
 }
