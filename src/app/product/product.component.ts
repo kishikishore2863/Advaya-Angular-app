@@ -28,7 +28,7 @@ export class ProductComponent {
     constructor(private productService: ProductService) {
         
         this.getProductDetails();
-        debugger
+
     }
 
     // ngOnInit() {
