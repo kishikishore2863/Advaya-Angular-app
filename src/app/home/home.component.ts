@@ -235,7 +235,7 @@ export class HomeComponent implements OnInit {
     setInterval(() => this.nextTestimonial(), 5000);
     this.productService. getSliderCards().then((products) => {
       this.sliderImage= products;
-      debugger
+
     });
 
     this.responsiveOptions = [
@@ -258,15 +258,17 @@ export class HomeComponent implements OnInit {
   }
 
   showNavigationArrows = false;
-  showNavigationIndicators = false;
+  showNavigationIndicators = true;
+  dark=true;
   // images = [1055, 194, 368].map((n) => `https://picsum.photos/id/${n}/900/500`);
   // images = this.slides.map((n) => n.src);
   // images = this.slides;
   images = [
-    '../../assets/img1.jpeg',
+    '../../assets/banner1.jpg',
     '../../assets/img2.webp',
     '../../assets/img3.jpeg',
     '../../assets/Sample_Banner(1920x760).png',
+
   ];
 
   constructor(

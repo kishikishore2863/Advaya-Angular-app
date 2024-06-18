@@ -28,12 +28,9 @@
       />
     </div>
   </div>
-  <div class="form-container">
+  <!-- <div class="form-container">
     <form
-      [formGroup]="contactForm"
-      (ngSubmit)="onSubmit()"
-      class="formbox"
-      action="#"
+    [formGroup]="contactForm" (ngSubmit)="sendEmail()"
       style="width: 556px"
     >
       <div class="mb-3" class="name">
@@ -73,24 +70,24 @@
       </div>
       <div class="mb-3" class="PhoneNumber">
         <input
-          id="PhoneNumber"
-          formControlName="PhoneNumber"
+          id="phone"
+          formControlName="phone"
           placeholder="  PhoneNumber *"
         />
         <div
           *ngIf="
-            PhoneNumber?.invalid && (PhoneNumber?.dirty || PhoneNumber?.touched)
+          phone?.invalid && (phone?.dirty || phone?.touched)
           "
         >
           <div
             style="color: red; margin-left: 15px"
-            *ngIf="PhoneNumber?.errors?.['required']"
+            *ngIf="phone?.errors?.['required']"
           >
             Required
           </div>
           <div
             style="color: red; margin-left: 15px"
-            *ngIf="PhoneNumber?.errors?.['maxlength']"
+            *ngIf="phone?.errors?.['maxlength']"
           >
             phone number must must have only 10 numbers
           </div>
@@ -126,7 +123,7 @@
         </button>
       </div>
     </form>
-  </div>
+  </div> -->
 </div>
 
 <div>
@@ -283,3 +280,11 @@
   </div>
 </div>
 <!-- <app-footer></app-footer> -->
+
+
+<div>
+  <div>
+    <form action="
+    "></form>
+  </div>
+</div>

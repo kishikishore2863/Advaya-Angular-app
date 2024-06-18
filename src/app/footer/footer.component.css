@@ -1,4 +1,6 @@
 /* Base styles */
+
+
 .root{
   width: 100%;
 
@@ -69,6 +71,68 @@ h1 {
 color: rgb(78, 180, 239);
 }
 
+.quickLinks>li{
+  cursor: pointer;
+}
+/* a {
+  color: black ;
+  text-decoration: none;
+  font-size: 17px;
+} */
+
+.social-media {
+  padding: 20px;
+}
+.widget-list {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+}
+.widget-list li {
+  margin-bottom: 10px;
+}
+.social-icon {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+}
+.social-icon i {
+  font-size: 1em;
+}
+.social-icon span {
+  color: black;
+  margin-left: 10px;
+  font-size: small;
+}
+
+.social [class*="fa fa-"] {
+  background-color: #333;
+  border-radius: 30px;
+  color: #fff;
+  display: inline-block;
+  height: 30px;
+  line-height: 30px;
+  margin: auto 3px;
+  width: 30px;
+  font-size: 15px;
+  text-align: center;
+}
+
+.fa-twitter:hover { 
+  background-color: #46c0fb; 
+}
+
+.social-icons {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1rem;
+}
+
+.social-icon {
+  font-size: 1.3rem;
+}
+
+
 
 /* Media query for mobile devices (300px to 600px) */
 @media screen and (min-width: 300px) and (max-width: 600px) {
@@ -91,4 +155,11 @@ color: rgb(78, 180, 239);
   .col {
     flex: 1;
   }
+}
+
+.about{
+  padding-right: 20%;
+  font-size: 12px;
+  line-height: 1.5rem;
+  color: #848484;
 }

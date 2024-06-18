@@ -2,6 +2,7 @@
 <ngb-carousel
   [showNavigationArrows]="showNavigationArrows"
   [showNavigationIndicators]="showNavigationIndicators"
+  
 >
   @for (image of images; track image) {
   <ng-template ngbSlide>
@@ -11,7 +12,10 @@
   </ng-template>
   }
 </ngb-carousel>
+
 }
+
+
 
 <div class="btn-group" role="group" aria-label="Carousel toggle controls">
   <button
