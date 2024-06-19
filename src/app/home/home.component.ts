@@ -19,7 +19,7 @@ import { TagModule } from 'primeng/tag';
 import { RouterLink } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FooterComponent } from '../footer/footer.component';
+
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import {
   CarouselComponent,
@@ -37,7 +37,6 @@ import {
   selector: 'app-home',
   standalone: true,
   imports: [
-    FooterComponent,
     RouterLink,
     ThemeDirective,
     CarouselComponent,

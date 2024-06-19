@@ -28,13 +28,22 @@
       />
     </div>
   </div>
-  <!-- <div class="form-container">
+  <div class="form-container">
     <form
-    [formGroup]="contactForm" (ngSubmit)="sendEmail()"
+      [formGroup]="contactForm"
+      (ngSubmit)="onSubmit()"
+      class="formbox"
+      action="#"
       style="width: 556px"
     >
       <div class="mb-3" class="name">
-        <input id="name" formControlName="name" placeholder=" Name *" />
+        <input
+          id="name"
+          formControlName="name"
+          placeholder="Name *"
+          (keydown)="onNameInput($event)"
+          type="text"
+        />
         <div *ngIf="name?.invalid && (name?.dirty || name?.touched)">
           <div
             style="color: red; margin-left: 15px"
@@ -42,17 +51,11 @@
           >
             Required
           </div>
-          <div
-            style="color: red; margin-left: 15px"
-            *ngIf="name?.errors?.['minlength']"
-          >
-            Name must be at least 3 characters long.
-          </div>
         </div>
       </div>
 
       <div class="mb-3" class="Email">
-        <input id="email" formControlName="email" placeholder="  Email *" />
+        <input id="email" formControlName="email" placeholder="Email *" />
         <div *ngIf="email?.invalid && (email?.dirty || email?.touched)">
           <div
             style="color: red; margin-left: 15px"
@@ -70,41 +73,50 @@
       </div>
       <div class="mb-3" class="PhoneNumber">
         <input
-          id="phone"
-          formControlName="phone"
-          placeholder="  PhoneNumber *"
+          maxlength="10"
+          id="PhoneNumber"
+          formControlName="PhoneNumber"
+          placeholder="PhoneNumber *"
+          (keydown)="onPhoneNumberInput($event)"
         />
         <div
           *ngIf="
-          phone?.invalid && (phone?.dirty || phone?.touched)
+            PhoneNumber?.invalid && (PhoneNumber?.dirty || PhoneNumber?.touched)
           "
         >
           <div
             style="color: red; margin-left: 15px"
-            *ngIf="phone?.errors?.['required']"
+            *ngIf="PhoneNumber?.errors?.['required']"
           >
             Required
           </div>
           <div
             style="color: red; margin-left: 15px"
-            *ngIf="phone?.errors?.['maxlength']"
+            *ngIf="PhoneNumber?.errors?.['minlength']"
           >
-            phone number must must have only 10 numbers
+            phone number should be 10 numbers
+          </div>
+          <div
+            style="color: red; margin-left: 15px"
+            *ngIf="PhoneNumber?.errors?.['numeric']"
+          >
+            invalid Phone Number format
           </div>
         </div>
       </div>
 
       <div class="mb-3" class="message">
         <textarea
+          style="padding-left: 15px"
           id="message"
           formControlName="message"
-          placeholder=" How Can I Help You?"
+          placeholder="How Can I Help You?"
           maxlength="250"
         ></textarea>
         <div *ngIf="message?.invalid && (message?.dirty || message?.touched)">
           <div
             style="color: red; margin-left: 15px"
-            *ngif="message?.errors?.['required']"
+            *ngIf="message?.errors?.['required']"
           >
             Required
           </div>
@@ -118,12 +130,10 @@
       </div>
 
       <div>
-        <button class="button" type="submit" [disabled]="contactForm.invalid">
-          Submit
-        </button>
+        <button class="button" type="submit">Submit</button>
       </div>
     </form>
-  </div> -->
+  </div>
 </div>
 
 <div>
@@ -273,6 +283,7 @@
         class="btn btn-primary"
         data-bs-toggle="modal"
         data-bs-target="#askQstn"
+        (click)="open(content)"
       >
         GET IN TOUCH
       </button>
@@ -281,10 +292,155 @@
 </div>
 <!-- <app-footer></app-footer> -->
 
+<div
+  class="modal fade"
+  id="askQstn"
+  tabindex="-1"
+  aria-labelledby="askQstnLabel"
+  aria-hidden="false"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="askQstnLabel">Ask your question</h1>
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <form
+          class="row g-3"
+          id="questionForm"
+          onsubmit="submitQuestionForm(); return false;"
+        >
+          <div class="mb-3 col-12">
+            <textarea
+              class="form-control"
+              id="askQstnTextarea1"
+              rows="3"
+              name="question"
+              placeholder="Write your question here *"
+              value=""
+              required
+            ></textarea>
+          </div>
+          <div class="mb-3 col-12">
+            <input
+              maxlength="10"
+              oninput="this.value = this.value.replace(/[^0-9]/g, '').substring(0, 10)"
+              type="text"
+              class="form-control"
+              id="askPhoneNumber1"
+              name="phone"
+              aria-describedby="askPhoneNumber1"
+              placeholder="Phone number"
+              value=""
+            />
+            <input
+              type="hidden"
+              name="access_key"
+              value="b2ff3560-a14d-49ef-b734-5dfabe9948ae"
+            />
+          </div>
+          <div class="mb-3 col-12">
+            <input
+              type="email"
+              class="form-control"
+              id="askQstnEmail1"
+              aria-describedby="askQstnEmailHelp"
+              placeholder="Email *"
+              name="email"
+              value=""
+              required
+            />
+          </div>
+          <button type="submit" class="col-4 mx-auto btn btn-primary">
+            Submit
+          </button>
+        </form>
 
-<div>
-  <div>
-    <form action="
-    "></form>
+        <div id="questionResult"></div>
+      </div>
+    </div>
   </div>
 </div>
+
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h1
+      class="modal-title"
+      id="modal-basic-title"
+      style="
+        font-size: 30px;
+        font-weight: normal;
+        font-family: sans-serif;
+        color: #000000;
+      "
+    >
+      Ask your question
+    </h1>
+    <!-- <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button> -->
+  </div>
+  <div class="modal-body">
+    <form
+      class=""
+      id="questionForm"
+      onsubmit="submitQuestionForm(); return false;"
+    >
+      <div class="mb-3 col-12">
+        <textarea
+          class="form-control"
+          id="askQstnTextarea1"
+          rows="3"
+          name="question"
+          placeholder="Write your question here *"
+          value=""
+          required
+        ></textarea>
+      </div>
+      <div class="mb-3 col-12">
+        <input
+          maxlength="10"
+          oninput="this.value = this.value.replace(/[^0-9]/g, '').substring(0, 10)"
+          type="text"
+          class="form-control"
+          id="askPhoneNumber1"
+          name="phone"
+          aria-describedby="askPhoneNumber1"
+          placeholder="Phone number"
+          value=""
+        />
+        <input
+          type="hidden"
+          name="access_key"
+          value="b2ff3560-a14d-49ef-b734-5dfabe9948ae"
+        />
+      </div>
+      <div class="mb-3 col-12">
+        <input
+          type="email"
+          class="form-control"
+          id="askQstnEmail1"
+          aria-describedby="askQstnEmailHelp"
+          placeholder="Email *"
+          name="email"
+          value=""
+          required
+        />
+      </div>
+      <button
+        type="submit"
+        class="col-4 mx-auto btn btn-primary"
+        style="
+          background-color: #f96e44;
+          border: none !important;
+          display: flex;
+          justify-content: center;
+        "
+      >
+        Submit
+      </button>
+    </form>
+
+    <div id="questionResult"></div>
+  </div>
+  <!-- <div class="modal-footer"></div> -->
+</ng-template>

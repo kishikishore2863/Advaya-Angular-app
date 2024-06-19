@@ -196,7 +196,7 @@
     margin-bottom: 10px;
     margin-top: 5px;
   }
-  input {
+  .form-container input {
     width: 516px;
     height: 56px;
     margin-left: 15px;
@@ -205,7 +205,8 @@
     border: none;
     background-color: #fef1ec;
     font-size: 14px;
-  }
+    padding-left: 15px;
+  } 
   #message {
     background-color: #fef1ec;
     border: none;
@@ -242,13 +243,13 @@
     background-color: orangered;
     font-size: 15px;
   }
-  textarea {
+  .form-container textarea {
     height: 150px;
     width: 516px;
     margin-left: 15px;
     border-radius: 5px;
     font-size: 17px;
-  }
+  } 
   .banner-details {
     margin: 80px 100px 0px !important;
     padding: 0px 15px;
