@@ -1,4 +1,4 @@
-import { NgFor } from '@angular/common';
+import { NgFor, CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { RouterLink } from '@angular/router';
@@ -6,6 +6,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import {  NavigationEnd } from '@angular/router';
 
 import {
   CarouselComponent,
@@ -23,6 +24,7 @@ import {
   selector: 'app-header',
   standalone: true,
   imports: [
+    CommonModule,
     ThemeDirective,
     CarouselComponent,
     CarouselInnerComponent,
@@ -39,6 +41,7 @@ import {
   providers: [NgbCarouselConfig],
 })
 export class HeaderComponent {
+  currentRoute: any;
   slides: any[] = new Array(4).fill({
     id: -1,
     src: '',
@@ -51,20 +54,18 @@ export class HeaderComponent {
     this.hideSidebar();
   }
 
-  constructor(config: NgbCarouselConfig, private route: Router) {
+  constructor(config: NgbCarouselConfig, private route: Router,private router: Router, private activatedRoute: ActivatedRoute) {
     // customize default values of carousels used by this component tree
     config.showNavigationArrows = true;
     config.showNavigationIndicators = true;
+  
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.currentRoute = event.url;
+      }
+    });
   }
 
-  // toggleSidebar(visible: boolean): void {
-  //   const sidebar: HTMLElement | null = document.querySelector('.sidebar');
-  //   console.log(visible);
-  //   if (sidebar) {
-  //     sidebar.style.display = visible ? 'none' : 'flex';
-  //     // sidebar.style.visibility = visible ? 'visible' : 'hidden';
-  //   }
-  // }
 
   hideSidebar(): void {
     const sidebar: HTMLElement | null = document.querySelector('.sidebar');

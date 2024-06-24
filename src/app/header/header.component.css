@@ -212,6 +212,19 @@
   .menu-button {
     display: block;
   }
+  .nav-list>li:hover {
+    /* visibility: visible; */
+    border-bottom: 3px solid rgb(12, 12, 12);
+    transform: scaleX(1);
+   
+    font-weight: bold;
+    transition: all 0.1s ease-in-out 0s;
+  }
+  .nav-list > li.active {
+    border-bottom: 3px solid rgb(12, 12, 12);
+    font-weight: bold;
+  }
+
 }
 
 /* kishore */
@@ -260,7 +273,7 @@ nav li:first-child {
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  z-index: 1;
+  z-index: 3;
   /* visibility: hidden; */
 }
 .sidebar li {

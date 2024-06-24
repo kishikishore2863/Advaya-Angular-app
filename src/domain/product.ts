@@ -10,3 +10,13 @@ export interface Product {
   image?: string;
   rating?: number;
 }
+
+
+// domain/product.ts
+export interface Productss {
+  id: string;
+  title: string;
+  image: string;
+  price: { [key: string]: string };
+  description: string;
+}
