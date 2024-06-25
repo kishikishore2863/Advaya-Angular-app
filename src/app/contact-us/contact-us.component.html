@@ -8,7 +8,7 @@
   </ol>
 </div>
 
-<div style="width: 100%; margin-bottom: 100px;" class="main">
+<!-- <div style="width: 100%; margin-bottom: 100px;" class="main">
   <div style="margin-top: 20px">
     <div class="banner-details">
       <h1 class="heading1">
@@ -137,10 +137,56 @@
     </form>
 
   </div>
+</div> -->
+
+
+<div class="banner-details">
+  <div class="container">
+      <div class="contact">
+          <h1>CONTACT <span>US</span></h1>
+          <h2>Get in touch</h2>
+          <p>
+              Want to contact us? We'd love to hear from you. Here's how you can reach us. Just send us your
+              question or concerns and we will connect you soon!
+          </p>
+      </div>
+  </div>
 </div>
 
+<div class="banner">
+  <div class="container">
+      <form id="contactForm" method="post" onsubmit="submitForm(); return false;">
+          <div class="mb-3">
+              <input class="form-control name" name="name" id="name" type="text" placeholder="Name *" value=""
+                  required />
+              <input type="hidden" name="access_key" value="b2ff3560-a14d-49ef-b734-5dfabe9948ae" />
+          </div>
 
+          <div class="mb-3">
+              <input class="form-control email" name="email" id="emailAddress" type="email"
+                  placeholder="Email Address *" value="" required />
+          </div>
 
+          <div class="mb-3">
+              <input class="form-control phno" name="phone" id="phoneNumber" maxlength="10"
+                  oninput="this.value = this.value.replace(/[^0-9]/g, '').substring(0, 10)" type="text"
+                  placeholder="Phone number" value="" />
+          </div>
+
+          <div class="mb-3">
+              <textarea class="form-control message" name="message" id="message" type="text"
+                  placeholder="How can we help you? *" style="height: 10rem" required></textarea>
+          </div>
+
+          <div class="d-grid">
+              <button class="btn btn-primary btn-lg contact-submit" type="submit">
+                  Submit
+              </button>
+          </div>
+          <div id="result"></div>
+      </form>
+  </div>
+</div>
 
 
 
