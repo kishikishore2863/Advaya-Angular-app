@@ -1,4 +1,5 @@
 <br />
+<div >
 <div class="breadcrumb">
   <ol class="breadcrumb-items">
     <li class="breadcrumb-item1" [routerLink]="['/']">Home</li>
@@ -7,7 +8,7 @@
   </ol>
 </div>
 
-<div style="width: 100%; margin-bottom: 100px">
+<div style="width: 100%; margin-bottom: 100px;" class="main">
   <div style="margin-top: 20px">
     <div class="banner-details">
       <h1 class="heading1">
@@ -20,7 +21,7 @@
         soon!
       </p>
     </div>
-    <div class="banner">
+    <div class="banner" >
       <img
         style="width: 100%; height: 364px"
         src="https://www.cloud4c.com/lat/sites/lat/files/2022-07/cloud4c-company-contact-1Desktop.jpg"
@@ -29,6 +30,7 @@
     </div>
   </div>
   <div class="form-container">
+
     <form
       [formGroup]="contactForm"
       (ngSubmit)="onSubmit()"
@@ -36,7 +38,7 @@
       action="#"
       style="width: 556px"
     >
-      <div class="mb-3" class="name">
+      <div class="mb-3" class="name" style="width: 100%;">
         <input
           id="name"
           formControlName="name"
@@ -133,8 +135,22 @@
         <button class="button" type="submit" style="border: none !important;">Submit</button>
       </div>
     </form>
+
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <div>
   <div class="row" style="padding: 20px">
@@ -185,8 +201,8 @@
         <div style="margin-top: 20px">
           <h5>Address</h5>
           <p>
-            Address Unleash Tech Worx Pvt Ltd Spacexworks Business Services,
-            Unit3F, Level3, Century Central, Kanakapura Road, Bangalore 560062
+            Address Unleash Tech Worx Pvt Ltd 
+         Kanakapura Road, Bangalore 560062
           </p>
         </div>
       </div>
@@ -380,3 +396,4 @@
     <div id="questionResult"></div>
   </div>
 </ng-template>
+</div>
