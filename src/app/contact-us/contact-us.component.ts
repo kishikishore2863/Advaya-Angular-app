@@ -78,9 +78,11 @@ export class ContactUsComponent {
       ],
       message: ['', [Validators.required, Validators.minLength(10)]],
     });
+
     this.contactForm.get('name')?.valueChanges.subscribe((value) => {
       this.capitalizeName(value);
     });
+
     this.questionForm = this.fb.group({
       question: ['', Validators.required],
       phone: [
@@ -107,13 +109,8 @@ export class ContactUsComponent {
     return this.contactForm.get('message');
   }
 
-  numericValidator(control: AbstractControl): ValidationErrors | null {
-    const value = control.value;
-    if (value && !/^[6-9][0-9]*$/.test(value)) {
-      return { numeric: true };
-    }
-    return null;
-  }
+
+
 
   onNameInput(event: KeyboardEvent): void {
     const input = event.target as HTMLInputElement;
@@ -164,12 +161,23 @@ export class ContactUsComponent {
         (response: EmailJSResponseStatus) => {
           console.log('SUCCESS!', response.status, response.text);
           // this.showSuccess()
+          setTimeout(() => {
+            window.location.href = window.location.href;
+          }, 100);
         },
         (error) => {
           console.log('FAILED...', error);
         }
       );
     }
+  }
+
+  numericValidator(control: AbstractControl): ValidationErrors | null {
+    const value = control.value;
+    if (value && !/^[6-9][0-9]*$/.test(value)) {
+      return { numeric: true };
+    }
+    return null;
   }
 
   capitalizeName(value: string): void {
@@ -190,12 +198,12 @@ export class ContactUsComponent {
   onSubmitQn() {
     if (this.questionForm.valid) {
       const serviceID = 'service_s03ojwp';
-      const templateID = 'template_gadr17o';
+      const templateID = 'template_3ctuo2m';
       const userID = 'I1cjHMspo_4Uxg7Tw';
 
       const templateParams = {
-        question: this.questionForm.get('message')?.value,
-        phone: this.questionForm.get('PhoneNumber')?.value,
+        question: this.questionForm.get('question')?.value,
+        phone: this.questionForm.get('phone')?.value,
         email: this.questionForm.get('email')?.value,
       };
 
@@ -203,7 +211,11 @@ export class ContactUsComponent {
         (response: EmailJSResponseStatus) => {
           console.log('SUCCESS!', response.status, response.text);
           // this.showSuccess()
-        },
+          setTimeout(() => {
+            window.location.href = window.location.href;
+          }, 100);
+        }
+        ,
         (error) => {
           console.log('FAILED...', error);
         }
